@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { formatDate, newsCategories, type NewsItem } from "@/data/news";
 import Icon from "@/components/Icon";
 
@@ -38,17 +39,21 @@ export default function NewsList({ items }: { items: NewsItem[] }) {
             </button>
           ))}
         </div>
-        <div className="md:w-72">
+        <div className="relative md:w-72">
           <label htmlFor="news-search" className="sr-only">
             Search news
           </label>
+          <Icon
+            name="search"
+            className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/45"
+          />
           <input
             id="news-search"
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search news…"
-            className="w-full rounded border border-line px-3 py-2 text-sm"
+            className="w-full rounded border border-line py-2 pl-9 pr-3 text-sm"
           />
         </div>
       </div>
@@ -66,29 +71,44 @@ export default function NewsList({ items }: { items: NewsItem[] }) {
           {filtered.map((n) => (
             <li
               key={n.slug}
-              className="flex flex-col rounded border border-line bg-white shadow-sm transition-shadow hover:shadow-md"
+              className="group flex flex-col overflow-hidden rounded border border-line bg-white shadow-sm transition-shadow hover:shadow-lg"
             >
-              <div className="border-t-[3px] border-gold p-5">
-                <div className="mb-3 flex items-center gap-3 text-xs">
-                  <span className="rounded bg-brand-deep px-2 py-0.5 font-bold uppercase tracking-wide text-white">
-                    {n.category}
-                  </span>
-                  <time dateTime={n.date} className="text-ink/65">
-                    {formatDate(n.date)}
-                  </time>
+              <Link
+                href={`/news/${n.slug}`}
+                className="relative block aspect-[16/9] overflow-hidden bg-mist"
+                tabIndex={-1}
+                aria-hidden="true"
+              >
+                <Image
+                  src={n.image.src}
+                  alt=""
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <span className="absolute left-3 top-3 rounded bg-brand-dark/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-gold shadow">
+                  {n.category}
+                </span>
+              </Link>
+              <div className="flex flex-1 flex-col border-t-[3px] border-gold p-5">
+                <div className="mb-2.5 flex items-center gap-2 text-xs text-ink/65">
+                  <Icon name="calendar" className="h-3.5 w-3.5 text-brand" />
+                  <time dateTime={n.date}>{formatDate(n.date)}</time>
+                  <span aria-hidden="true">·</span>
+                  <span className="truncate">{n.department}</span>
                 </div>
                 <h2 className="mb-2 font-serif text-lg font-bold leading-snug text-brand-deep">
                   <Link href={`/news/${n.slug}`} className="hover:underline">
                     {n.title}
                   </Link>
                 </h2>
-                <p className="mb-4 text-sm leading-relaxed text-ink/80">{n.excerpt}</p>
+                <p className="mb-4 flex-1 text-sm leading-relaxed text-ink/80">{n.excerpt}</p>
                 <Link
                   href={`/news/${n.slug}`}
                   className="inline-flex items-center gap-1.5 text-sm font-bold text-brand hover:underline"
                 >
                   Read more
-                  <Icon name="arrow" className="h-4 w-4" />
+                  <Icon name="arrow" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   <span className="sr-only">: {n.title}</span>
                 </Link>
               </div>

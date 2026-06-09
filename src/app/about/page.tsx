@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import Tabs from "@/components/Tabs";
-import Icon from "@/components/Icon";
+import Icon, { type IconName } from "@/components/Icon";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -10,29 +10,35 @@ export const metadata: Metadata = {
   description: `Overview, leadership, history, departments and diplomatic mandate of the ${site.missionName} in ${site.city}, ${site.hostCountry}.`,
 };
 
-const departments = [
+const departments: { name: string; text: string; icon: IconName }[] = [
   {
     name: "Political Affairs",
+    icon: "globe",
     text: "Bilateral political relations, diplomatic correspondence and engagement with the host government.",
   },
   {
     name: "Consular & Immigration",
+    icon: "passport",
     text: "Passports, visas, emergency travel certificates, authentication, notarial services and citizen welfare.",
   },
   {
     name: "Trade & Investment",
+    icon: "scale",
     text: "Promotion of trade, investment facilitation and support for Nigerian and host-country businesses.",
   },
   {
     name: "Information & Culture",
+    icon: "bell",
     text: "Public communication, media relations, cultural programmes and the Mission's official publications.",
   },
   {
     name: "Education",
+    icon: "document",
     text: "Support for Nigerian students, scholarship administration and academic cooperation.",
   },
   {
     name: "Administration & Finance",
+    icon: "users",
     text: "Internal administration, human resources, finance and management of the chancery.",
   },
 ];
@@ -181,7 +187,13 @@ export default function AboutPage() {
                   </Para>
                   <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
                     {departments.map((d) => (
-                      <li key={d.name} className="rounded border border-line bg-white p-5 shadow-sm">
+                      <li
+                        key={d.name}
+                        className="group rounded border border-line bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-deep hover:shadow-md"
+                      >
+                        <span className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded bg-brand/10 text-brand transition-colors group-hover:bg-brand group-hover:text-gold">
+                          <Icon name={d.icon} className="h-5 w-5" />
+                        </span>
                         <h3 className="mb-2 font-serif text-base font-bold text-brand-deep">{d.name}</h3>
                         <p className="text-sm leading-relaxed text-ink/80">{d.text}</p>
                       </li>

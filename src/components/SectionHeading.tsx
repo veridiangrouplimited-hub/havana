@@ -1,9 +1,10 @@
 import Link from "next/link";
-import Icon from "@/components/Icon";
+import Icon, { type IconName } from "@/components/Icon";
 
 /**
- * Signature section heading: small-caps gold-dashed eyebrow, serif title,
- * two-tone gold/green rule — used consistently across the site.
+ * Signature section heading: small-caps gold-dashed eyebrow (with an
+ * optional icon annotation), serif title, two-tone gold/green rule —
+ * used consistently across the site.
  */
 export default function SectionHeading({
   eyebrow,
@@ -11,6 +12,7 @@ export default function SectionHeading({
   id,
   lead,
   link,
+  icon,
   tone = "light",
 }: {
   eyebrow: string;
@@ -18,6 +20,7 @@ export default function SectionHeading({
   id?: string;
   lead?: string;
   link?: { label: string; href: string };
+  icon?: IconName;
   tone?: "light" | "dark";
 }) {
   const dark = tone === "dark";
@@ -30,6 +33,16 @@ export default function SectionHeading({
           }`}
         >
           <span className="inline-block h-px w-9 bg-gold" aria-hidden="true" />
+          {icon && (
+            <span
+              className={`inline-flex h-6 w-6 items-center justify-center rounded-full ring-1 ${
+                dark ? "bg-white/10 text-gold ring-gold/50" : "bg-brand/10 text-brand ring-brand/30"
+              }`}
+              aria-hidden="true"
+            >
+              <Icon name={icon} className="h-3.5 w-3.5" />
+            </span>
+          )}
           {eyebrow}
         </p>
         <h2

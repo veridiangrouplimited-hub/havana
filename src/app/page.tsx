@@ -8,6 +8,7 @@ import Icon, { type IconName } from "@/components/Icon";
 import NoticeBadge from "@/components/NoticeBadge";
 import SectionHeading from "@/components/SectionHeading";
 import FlagStripe from "@/components/FlagStripe";
+import SectionDivider from "@/components/SectionDivider";
 
 const latestNews = [...news].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
 const latestNotices = [...notices].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
@@ -160,6 +161,7 @@ export default function Home() {
           eyebrow="Service · Dignity · Care"
           title="Consular Services"
           id="services-heading"
+          icon="passport"
           link={{ label: "View all services", href: "/consular-services" }}
         />
         <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -189,6 +191,8 @@ export default function Home() {
           ))}
         </ul>
       </section>
+
+      <SectionDivider />
 
       {/* Head of Mission message */}
       <section aria-labelledby="hom-heading" className="bg-mist">
@@ -225,6 +229,7 @@ export default function Home() {
               eyebrow="A word of welcome"
               title="Message from the Head of Mission"
               id="hom-heading"
+              icon="users"
             />
             <blockquote className="relative space-y-4 border-l-4 border-gold pl-6 text-base leading-relaxed text-ink/90">
               <p>
@@ -258,35 +263,53 @@ export default function Home() {
               eyebrow="Latest from the Embassy"
               title="News & Press Releases"
               id="news-heading"
+              icon="bell"
               link={{ label: "All news", href: "/news" }}
             />
             <ul className="space-y-5">
               {latestNews.map((n) => (
                 <li
                   key={n.slug}
-                  className="rounded border border-line bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
+                  className="group flex flex-col overflow-hidden rounded border border-line bg-white shadow-sm transition-shadow hover:shadow-md sm:flex-row"
                 >
-                  <div className="mb-2 flex flex-wrap items-center gap-3 text-xs">
-                    <span className="rounded bg-brand-deep px-2 py-0.5 font-bold uppercase tracking-wide text-white">
+                  <Link
+                    href={`/news/${n.slug}`}
+                    className="relative block h-44 shrink-0 overflow-hidden bg-mist sm:h-auto sm:w-52"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                  >
+                    <Image
+                      src={n.image.src}
+                      alt=""
+                      fill
+                      sizes="(min-width: 640px) 208px, 100vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <span className="absolute left-3 top-3 rounded bg-brand-dark/90 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gold shadow">
                       {n.category}
                     </span>
-                    <time dateTime={n.date} className="text-ink/65">
-                      {formatDate(n.date)}
-                    </time>
+                  </Link>
+                  <div className="p-5">
+                    <div className="mb-2 flex items-center gap-2 text-xs text-ink/65">
+                      <Icon name="calendar" className="h-3.5 w-3.5 text-brand" />
+                      <time dateTime={n.date}>{formatDate(n.date)}</time>
+                      <span aria-hidden="true">·</span>
+                      <span className="truncate">{n.department}</span>
+                    </div>
+                    <h3 className="font-serif text-lg font-bold leading-snug text-brand-deep">
+                      <Link href={`/news/${n.slug}`} className="hover:underline">
+                        {n.title}
+                      </Link>
+                    </h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-ink/80">{n.excerpt}</p>
                   </div>
-                  <h3 className="font-serif text-lg font-bold leading-snug text-brand-deep">
-                    <Link href={`/news/${n.slug}`} className="hover:underline">
-                      {n.title}
-                    </Link>
-                  </h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-ink/80">{n.excerpt}</p>
                 </li>
               ))}
             </ul>
           </div>
 
           <div>
-            <SectionHeading eyebrow="Official announcements" title="Public Notices" />
+            <SectionHeading eyebrow="Official announcements" title="Public Notices" icon="document" />
             <ul className="space-y-4">
               {latestNotices.map((n) => (
                 <li key={n.id} className="rounded border-l-4 border-gold bg-mist p-4">
@@ -327,6 +350,7 @@ export default function Home() {
             eyebrow="Nigeria & Cuba"
             title="A Historic Partnership"
             id="relations-heading"
+            icon="globe"
             lead="Nigeria and Cuba share warm, longstanding relations built on solidarity, mutual respect and growing cooperation in trade, health, education and culture."
             link={{ label: "Explore bilateral relations", href: "/relations" }}
             tone="dark"
@@ -374,12 +398,17 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="pt-10">
+        <SectionDivider />
+      </div>
+
       {/* Emergency + Contact/location */}
-      <section aria-labelledby="contact-heading" className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+      <section aria-labelledby="contact-heading" className="mx-auto max-w-7xl px-4 pb-16 pt-6 md:pb-20">
         <SectionHeading
           eyebrow="Here to help"
           title="Visit, Call or Write to Us"
           id="contact-heading"
+          icon="pin"
         />
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="rounded border-l-4 border-red-700 bg-red-50 p-6">

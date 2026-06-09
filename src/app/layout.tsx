@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Public_Sans, Source_Serif_4 } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -68,6 +69,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <BackToTop />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
