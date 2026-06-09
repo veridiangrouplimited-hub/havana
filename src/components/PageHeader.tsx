@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import FlagStripe from "@/components/FlagStripe";
 
 export interface Crumb {
   label: string;
@@ -15,9 +17,19 @@ export default function PageHeader({
   crumbs: Crumb[];
 }) {
   return (
-    <div className="bg-gradient-to-r from-brand-dark to-brand text-white">
-      <div className="mx-auto max-w-7xl px-4 py-10 md:py-14">
-        <nav aria-label="Breadcrumb" className="mb-4">
+    <div className="relative overflow-hidden bg-gradient-to-br from-brand-dark via-brand to-brand-deep text-white">
+      <div className="pattern-diagonal absolute inset-0" aria-hidden="true" />
+      <div className="glow-gold absolute inset-0" aria-hidden="true" />
+      <Image
+        src="/images/mfa-logo.png"
+        alt=""
+        width={340}
+        height={340}
+        className="pointer-events-none absolute -bottom-16 -right-10 hidden h-72 w-72 object-contain opacity-[0.08] md:block"
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto max-w-7xl px-4 py-11 md:py-16">
+        <nav aria-label="Breadcrumb" className="mb-5">
           <ol className="flex flex-wrap items-center gap-1.5 text-xs text-white/80 md:text-sm">
             <li>
               <Link href="/" className="hover:text-gold hover:underline">
@@ -26,7 +38,9 @@ export default function PageHeader({
             </li>
             {crumbs.map((c, i) => (
               <li key={c.label} className="flex items-center gap-1.5">
-                <span aria-hidden="true">/</span>
+                <span aria-hidden="true" className="text-gold/70">
+                  /
+                </span>
                 {c.href && i < crumbs.length - 1 ? (
                   <Link href={c.href} className="hover:text-gold hover:underline">
                     {c.label}
@@ -40,10 +54,20 @@ export default function PageHeader({
             ))}
           </ol>
         </nav>
-        <h1 className="font-serif text-3xl font-bold md:text-4xl">{title}</h1>
-        <div className="mt-4 h-1 w-20 bg-gold" aria-hidden="true" />
-        {lead && <p className="mt-4 max-w-3xl text-base text-white/90 md:text-lg">{lead}</p>}
+        <p className="mb-2.5 flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.24em] text-gold">
+          <span className="inline-block h-px w-9 bg-gold" aria-hidden="true" />
+          Federal Republic of Nigeria
+        </p>
+        <h1 className="max-w-4xl font-serif text-3xl font-bold leading-tight md:text-[2.75rem]">
+          {title}
+        </h1>
+        <div className="mt-4 flex gap-1" aria-hidden="true">
+          <span className="h-1 w-14 bg-gold" />
+          <span className="h-1 w-4 bg-white/40" />
+        </div>
+        {lead && <p className="mt-5 max-w-3xl text-base text-white/90 md:text-lg">{lead}</p>}
       </div>
+      <FlagStripe className="relative h-1.5" />
     </div>
   );
 }

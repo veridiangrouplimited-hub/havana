@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /*
-  Official colour scheme — Nigerian Mission website template
+  Official colour scheme — Embassy of Nigeria in Havana
   Primary Navigation : Nigerian Green #0B5E3C
   Background         : White          #FFFFFF
   Section Headings   : Deep Green     #1F7A4C
@@ -34,6 +34,11 @@ body {
   font-family: var(--font-sans);
 }
 
+::selection {
+  background: var(--color-gold);
+  color: var(--color-brand-dark);
+}
+
 /* Anchored sections clear the sticky header */
 [id] {
   scroll-margin-top: 7rem;
@@ -59,6 +64,22 @@ body {
 }
 .skip-link:focus {
   left: 0;
+}
+
+/* Decorative surfaces for dark green bands */
+.pattern-diagonal {
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.045) 0 1px,
+    transparent 1px 14px
+  );
+}
+.glow-gold {
+  background: radial-gradient(
+    55% 75% at 82% 8%,
+    rgba(227, 179, 57, 0.22),
+    transparent 62%
+  );
 }
 
 @media (prefers-reduced-motion: reduce) {

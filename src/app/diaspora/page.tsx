@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 const registrationSteps = [
   "Complete the diaspora registration form — online via the Contact page, or in person at the Mission.",
-  "Provide your full name, contact details, location in [Host Country] and next-of-kin information.",
+  "Provide your full name, contact details, location in Cuba and next-of-kin information.",
   "Receive confirmation of registration from the consular section.",
   "Keep your details up to date whenever you move or change phone numbers.",
 ];

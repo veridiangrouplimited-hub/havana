@@ -7,27 +7,26 @@
  */
 
 export const site = {
-  /** e.g. "Embassy of the Federal Republic of Nigeria" /
-   *       "High Commission of the Federal Republic of Nigeria" /
-   *       "Permanent Mission of Nigeria" / "Consulate-General of Nigeria" */
-  missionName: "[Mission Name]",
-  missionShortName: "Nigerian Mission",
-  hostCountry: "[Host Country]",
-  city: "[City]",
-  address: "[Mission Address]",
-  email: "[Official Email]",
-  phones: ["[Official Phone Number 1]", "[Official Phone Number 2]"],
-  emergencyPhone: "[24-Hour Emergency Line]",
+  /** Brand name of the Mission as displayed across the website. */
+  missionName: "Embassy of Nigeria in Havana",
+  missionShortName: "Nigerian Embassy, Havana",
+  hostCountry: "Cuba",
+  city: "Havana",
+  address: "5ta Avenida No. 1402, Miramar, Playa",
+  /** Placeholder — replace with the Embassy's official mailbox. */
+  email: "info@nigeriahavana.gov.ng",
+  phones: ["[+53 7 XXX XXXX]", "[+53 7 XXX XXXX]"],
+  emergencyPhone: "[+53 5 XXX XXXX]",
   headOfMission: "[Head of Mission Name]",
   headOfMissionTitle:
-    "Ambassador Extraordinary and Plenipotentiary of the Federal Republic of Nigeria to [Host Country]",
+    "Ambassador Extraordinary and Plenipotentiary of the Federal Republic of Nigeria to the Republic of Cuba",
   officeHours: [
     { days: "Monday – Friday", hours: "9:00 am – 4:00 pm" },
     { days: "Consular submissions", hours: "9:30 am – 12:30 pm" },
     { days: "Collections", hours: "2:00 pm – 4:00 pm" },
   ],
-  /** Replace with the Mission's production domain before launch. */
-  url: "https://mission.example.gov.ng",
+  /** Placeholder — replace with the Embassy's production domain. */
+  url: "https://nigeriahavana.gov.ng",
   social: [
     { label: "Facebook", href: "[Facebook URL]" },
     { label: "X (Twitter)", href: "[X URL]" },

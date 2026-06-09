@@ -44,7 +44,7 @@ export const notices: Notice[] = [
     date: "2026-05-26",
     body: [
       "The Mission will be closed on [Date] in observance of Eid-el-Kabir. Normal services resume on [Date].",
-      "For emergencies involving Nigerian citizens during the closure, please call the 24-hour emergency line: [24-Hour Emergency Line].",
+      "For emergencies involving Nigerian citizens during the closure, please call the 24-hour emergency line: [+53 5 XXX XXXX].",
     ],
   },
   {
@@ -54,7 +54,7 @@ export const notices: Notice[] = [
     date: "2026-05-12",
     body: [
       "The Mission is aware of individuals and websites falsely claiming to offer expedited Nigerian visa and passport services for a fee.",
-      "All applications are made only through the official Nigeria Immigration Service portals. The Mission does not use agents and no third party can influence processing times. Report any solicitation to [Official Email].",
+      "All applications are made only through the official Nigeria Immigration Service portals. The Mission does not use agents and no third party can influence processing times. Report any solicitation to info@nigeriahavana.gov.ng.",
     ],
   },
   {
@@ -63,7 +63,7 @@ export const notices: Notice[] = [
     priority: "Advisory",
     date: "2026-04-30",
     body: [
-      "Nigerian citizens in [Host Country] are advised to carry valid identification at all times and to keep their residence documentation current, in line with host-country regulations.",
+      "Nigerian citizens in Cuba are advised to carry valid identification at all times and to keep their residence documentation current, in line with host-country regulations.",
       "Citizens are also encouraged to register with the Mission so they can be reached quickly in an emergency.",
     ],
   },
@@ -84,7 +84,7 @@ export const notices: Notice[] = [
     date: "2026-03-30",
     body: [
       "The Mission has introduced an online appointment system for all consular services to reduce waiting times.",
-      "From [Date], walk-in submissions will be accepted only for emergencies. Book your appointment through the Contact page or at [Official Email].",
+      "From [Date], walk-in submissions will be accepted only for emergencies. Book your appointment through the Contact page or at info@nigeriahavana.gov.ng.",
     ],
   },
 ];

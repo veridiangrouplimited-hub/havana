@@ -38,13 +38,13 @@ const departments = [
 ];
 
 const mandate = [
-  "Represent the Federal Republic of Nigeria in [Host Country] and protect its national interests.",
-  "Protect the rights, dignity and welfare of Nigerian citizens in [Host Country].",
+  "Represent the Federal Republic of Nigeria in Cuba and protect its national interests.",
+  "Protect the rights, dignity and welfare of Nigerian citizens in Cuba.",
   "Deliver efficient consular services — passports, visas, authentication and assistance.",
-  "Promote trade, investment and economic cooperation between Nigeria and [Host Country].",
+  "Promote trade, investment and economic cooperation between Nigeria and Cuba.",
   "Foster cultural, educational and people-to-people exchange.",
   "Negotiate and monitor the implementation of bilateral agreements.",
-  "Report on developments in [Host Country] of interest to Nigeria.",
+  "Report on developments in Cuba of interest to Nigeria.",
 ];
 
 function Para({ children }: { children: React.ReactNode }) {
@@ -153,8 +153,8 @@ export default function AboutPage() {
                   <H2>Key Milestones</H2>
                   <ol className="relative max-w-2xl space-y-6 border-l-2 border-gold pl-6">
                     {[
-                      { year: "[Year]", event: "Establishment of diplomatic relations between Nigeria and [Host Country]." },
-                      { year: "[Year]", event: "Opening of the Nigerian Mission in [City]." },
+                      { year: "[Year]", event: "Establishment of diplomatic relations between Nigeria and Cuba." },
+                      { year: "[Year]", event: "Opening of the Nigerian Mission in Havana." },
                       { year: "[Year]", event: "Signing of the first bilateral cooperation agreement." },
                       { year: "[Year]", event: "Inauguration of the current chancery building." },
                       { year: "[Year]", event: "Launch of the Mission's modernised consular services." },

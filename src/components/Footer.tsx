@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { site, govLinks } from "@/lib/site";
 import Icon from "@/components/Icon";
+import FlagStripe from "@/components/FlagStripe";
 
 const quickLinks = [
   { label: "Visa Services", href: "/consular-services/visa-services" },
@@ -21,19 +22,33 @@ const legalLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-dark text-white">
-      <div className="h-1.5 bg-gold" aria-hidden="true" />
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="relative overflow-hidden bg-brand-dark text-white">
+      <FlagStripe className="h-1.5" />
+      <div className="h-px bg-gold/60" aria-hidden="true" />
+      <Image
+        src="/images/mfa-logo.png"
+        alt=""
+        width={420}
+        height={420}
+        className="pointer-events-none absolute -bottom-24 -right-16 hidden h-96 w-96 object-contain opacity-[0.05] lg:block"
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="mb-4 flex items-center gap-3">
             <Image
               src="/images/mfa-logo.png"
               alt=""
-              width={48}
-              height={48}
-              className="h-12 w-12 object-contain"
+              width={52}
+              height={52}
+              className="h-13 w-13 object-contain"
             />
-            <p className="font-serif text-base font-bold leading-snug">{site.missionName}</p>
+            <div className="border-l-2 border-gold/60 pl-3">
+              <p className="font-serif text-base font-bold leading-snug">{site.missionName}</p>
+              <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/65">
+                Federal Republic of Nigeria
+              </p>
+            </div>
           </div>
           <address className="space-y-2.5 text-sm not-italic text-white/85">
             <p className="flex gap-2">
@@ -62,7 +77,8 @@ export default function Footer() {
         </div>
 
         <nav aria-label="Quick links">
-          <h2 className="mb-4 border-b border-gold/40 pb-2 font-serif text-base font-bold">
+          <h2 className="mb-4 flex items-center gap-2 font-serif text-base font-bold">
+            <span className="inline-block h-px w-6 bg-gold" aria-hidden="true" />
             Quick Links
           </h2>
           <ul className="space-y-2.5 text-sm">
@@ -77,7 +93,8 @@ export default function Footer() {
         </nav>
 
         <nav aria-label="Nigerian government links">
-          <h2 className="mb-4 border-b border-gold/40 pb-2 font-serif text-base font-bold">
+          <h2 className="mb-4 flex items-center gap-2 font-serif text-base font-bold">
+            <span className="inline-block h-px w-6 bg-gold" aria-hidden="true" />
             Government of Nigeria
           </h2>
           <ul className="space-y-2.5 text-sm">
@@ -99,8 +116,9 @@ export default function Footer() {
         </nav>
 
         <div>
-          <h2 className="mb-4 border-b border-gold/40 pb-2 font-serif text-base font-bold">
-            Connect With the Mission
+          <h2 className="mb-4 flex items-center gap-2 font-serif text-base font-bold">
+            <span className="inline-block h-px w-6 bg-gold" aria-hidden="true" />
+            Connect With the Embassy
           </h2>
           <ul className="mb-6 space-y-2.5 text-sm">
             {site.social.map((s) => (
@@ -127,7 +145,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/15">
+      <div className="relative border-t border-white/15">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-5 text-xs text-white/75 md:flex-row">
           <p>
             © {new Date().getFullYear()} {site.missionName}. Federal Republic of Nigeria. All
