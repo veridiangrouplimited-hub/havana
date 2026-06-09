@@ -1,26 +1,74 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+  Official colour scheme — Nigerian Mission website template
+  Primary Navigation : Nigerian Green #0B5E3C
+  Background         : White          #FFFFFF
+  Section Headings   : Deep Green     #1F7A4C
+  Accent             : Gold           #E3B339
+  Body Text          : Dark Grey      #333333
+*/
+@theme {
+  --color-brand: #0b5e3c;
+  --color-brand-deep: #1f7a4c;
+  --color-brand-dark: #084a2f;
+  --color-gold: #e3b339;
+  --color-gold-dark: #c2952a;
+  --color-ink: #333333;
+  --color-mist: #f4f7f5;
+  --color-line: #e2e8e4;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-source-serif), Georgia, "Times New Roman", serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+/* Anchored sections clear the sticky header */
+[id] {
+  scroll-margin-top: 7rem;
+}
+
+/* Strong, visible focus state on every interactive element */
+:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Skip link — hidden until focused */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--color-brand);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
