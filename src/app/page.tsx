@@ -199,21 +199,14 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 md:py-20 lg:grid-cols-[1fr_2fr]">
           <figure className="mx-auto w-full max-w-xs">
             <div className="relative overflow-hidden rounded shadow-lg">
-              <div className="flex aspect-[3/4] items-center justify-center border border-line bg-white">
-                <div className="px-6 text-center">
-                  <Image
-                    src="/images/mfa-logo.png"
-                    alt=""
-                    width={96}
-                    height={96}
-                    className="mx-auto mb-4 h-24 w-24 object-contain opacity-90"
-                  />
-                  <p className="text-xs font-semibold uppercase tracking-wider text-ink/60">
-                    Official portrait of
-                    <br />
-                    {site.headOfMission}
-                  </p>
-                </div>
+              <div className="relative aspect-[3/4] border border-line bg-mist">
+                <Image
+                  src={site.headOfMissionPortrait.src}
+                  alt={site.headOfMissionPortrait.alt}
+                  fill
+                  sizes="(min-width: 1024px) 320px, 80vw"
+                  className="object-cover"
+                />
               </div>
               <FlagStripe className="h-1.5" />
             </div>
@@ -222,6 +215,9 @@ export default function Home() {
                 {site.headOfMission}
               </span>
               <span className="text-ink/70">{site.headOfMissionTitle}</span>
+              <span className="mt-1 block text-[11px] italic text-ink/50">
+                {site.headOfMissionPortrait.credit}
+              </span>
             </figcaption>
           </figure>
           <div>

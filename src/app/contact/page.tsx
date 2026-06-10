@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 };
 
 const departmentContacts = [
-  { name: "Consular Section (visas, passports, documents)", email: "consular@nigeriahavana.gov.ng" },
-  { name: "Trade & Investment Section", email: "trade@nigeriahavana.gov.ng" },
-  { name: "Information & Press", email: "press@nigeriahavana.gov.ng" },
-  { name: "Education & Scholarships", email: "education@nigeriahavana.gov.ng" },
+  { name: "Consular Section (visas, passports, documents)", email: "consular.havana@foreignaffairs.gov.ng" },
+  { name: "Trade & Investment Section", email: "trade.havana@foreignaffairs.gov.ng" },
+  { name: "Information & Press", email: "press.havana@foreignaffairs.gov.ng" },
+  { name: "Education & Scholarships", email: "education.havana@foreignaffairs.gov.ng" },
 ];
 
 export default function ContactPage() {

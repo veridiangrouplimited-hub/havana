@@ -110,7 +110,7 @@ export const news: NewsItem[] = [
     body: [
       "The Embassy of Nigeria in Havana reminds all Nigerian citizens in Cuba that travel to and from Nigeria requires a valid Nigerian passport or, in emergencies, an Emergency Travel Certificate issued by the Embassy.",
       "The Embassy has received reports of unaccredited intermediaries offering passport and visa 'fast-track' services for a fee. Members of the public are advised that all applications are made directly through official online portals, and that no third party can influence processing times.",
-      "Any person who encounters such solicitation is encouraged to report it to the Embassy at info@nigeriahavana.gov.ng.",
+      "Any person who encounters such solicitation is encouraged to report it to the Embassy at info.havana@foreignaffairs.gov.ng.",
     ],
     image: {
       src: unsplash("1488646953014-85cb44e25828"),
@@ -129,7 +129,7 @@ export const news: NewsItem[] = [
     body: [
       "The Embassy on 6 April 2026 hosted a trade and investment roundtable bringing together over 60 business leaders, investors and trade officials from Nigeria and Cuba.",
       "Sessions focused on opportunities in agriculture and agro-processing, renewable energy, digital technology and Nigeria's fast-growing creative economy, alongside practical guidance on market entry and investment protection.",
-      "The Embassy's Trade and Investment Section provides year-round support to investors. Interested companies may contact the Embassy at info@nigeriahavana.gov.ng.",
+      "The Embassy's Trade and Investment Section provides year-round support to investors. Interested companies may contact the Embassy at info.havana@foreignaffairs.gov.ng.",
     ],
     image: {
       src: unsplash("1556761175-5973dc0f32e7"),

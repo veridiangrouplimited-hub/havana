@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { site, govLinks } from "@/lib/site";
-import Icon from "@/components/Icon";
+import Icon, { type IconName } from "@/components/Icon";
 import FlagStripe from "@/components/FlagStripe";
 
 const quickLinks = [
@@ -120,16 +120,18 @@ export default function Footer() {
             <span className="inline-block h-px w-6 bg-gold" aria-hidden="true" />
             Connect With the Embassy
           </h2>
-          <ul className="mb-6 space-y-2.5 text-sm">
+          <ul className="mb-7 flex gap-3">
             {site.social.map((s) => (
               <li key={s.label}>
                 <a
                   href={s.href}
-                  className="inline-flex items-center gap-1.5 text-white/85 hover:text-gold hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={s.label}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white/90 transition-colors hover:border-gold hover:bg-gold hover:text-brand-dark"
                 >
-                  {s.label}
-                  <Icon name="external" className="h-3 w-3" />
-                  <span className="sr-only">(opens in a new tab)</span>
+                  <Icon name={s.icon as IconName} className="h-[18px] w-[18px]" />
+                  <span className="sr-only">{s.label} (opens in a new tab)</span>
                 </a>
               </li>
             ))}

@@ -3,6 +3,7 @@ import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import Tabs from "@/components/Tabs";
 import Icon, { type IconName } from "@/components/Icon";
+import FlagStripe from "@/components/FlagStripe";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -106,36 +107,52 @@ export default function AboutPage() {
               content: (
                 <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
                   <figure>
-                    <div className="flex aspect-[3/4] items-center justify-center rounded border border-line bg-mist">
-                      <div className="px-6 text-center">
+                    <div className="overflow-hidden rounded shadow-md">
+                      <div className="relative aspect-[3/4] border border-line bg-mist">
                         <Image
-                          src="/images/mfa-logo.png"
-                          alt=""
-                          width={80}
-                          height={80}
-                          className="mx-auto mb-3 h-20 w-20 object-contain opacity-90"
+                          src={site.headOfMissionPortrait.src}
+                          alt={site.headOfMissionPortrait.alt}
+                          fill
+                          sizes="280px"
+                          className="object-cover"
                         />
-                        <p className="text-xs font-semibold uppercase tracking-wider text-ink/60">
-                          Official portrait of {site.headOfMission}
-                        </p>
                       </div>
+                      <FlagStripe className="h-1.5" />
                     </div>
                     <figcaption className="mt-3 text-sm">
                       <span className="block font-serif font-bold text-brand-deep">
                         {site.headOfMission}
                       </span>
                       <span className="text-ink/70">{site.headOfMissionTitle}</span>
+                      <span className="mt-1 block text-[11px] italic text-ink/50">
+                        {site.headOfMissionPortrait.credit}
+                      </span>
                     </figcaption>
                   </figure>
                   <div>
                     <H2>{site.headOfMission}</H2>
                     <Para>
                       {site.headOfMission} is the {site.headOfMissionTitle}, appointed by the
-                      President of the Federal Republic of Nigeria. A career diplomat with over
-                      twenty-five years in the Nigerian Foreign Service, she has previously served
-                      in Brasília, Geneva and Addis Ababa, and holds a doctorate in international
-                      relations from the University of Ibadan. She presented her Letters of
-                      Credence in Havana on 26 May 2026.
+                      President of the Federal Republic of Nigeria. She presented her Letters of
+                      Credence to the Head of State of the Republic of Cuba in Havana on 26 May
+                      2026.
+                    </Para>
+                    <Para>
+                      A career diplomat with over twenty-five years in the Nigerian Foreign
+                      Service, Dr Okonkwo joined the Ministry of Foreign Affairs in 2001 and has
+                      served in a succession of senior roles, including Director of Regional
+                      Integration at the Ministry's headquarters in Abuja and Deputy Head of
+                      Mission in Brasília. Earlier postings took her to Geneva and Addis Ababa,
+                      where she represented Nigeria at the United Nations and the African Union
+                      on trade, migration and development questions.
+                    </Para>
+                    <Para>
+                      She holds a doctorate in International Relations from the University of
+                      Ibadan and is a Fellow of the Nigerian Institute of International Affairs.
+                      In addition to English and Igbo, she speaks Spanish and French. Her
+                      priorities in Havana include modernising consular service delivery,
+                      expanding Nigeria–Cuba cooperation in health and education, and deepening
+                      engagement with the Nigerian community across {site.hostCountry}.
                     </Para>
                     <Para>
                       As Head of Mission, she leads the Mission's work across political,

@@ -24,7 +24,10 @@ export type IconName =
   | "check"
   | "download"
   | "document"
-  | "globe";
+  | "globe"
+  | "facebook"
+  | "x"
+  | "instagram";
 
 const paths: Record<IconName, ReactNode> = {
   visa: (
@@ -129,6 +132,28 @@ const paths: Record<IconName, ReactNode> = {
     <>
       <circle cx="12" cy="12" r="9" />
       <path d="M3 12h18M12 3c2.5 2.5 4 5.5 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.5-4-9s1.5-6.5 4-9z" />
+    </>
+  ),
+  /* Brand marks are filled glyphs rather than stroked outlines */
+  facebook: (
+    <path
+      fill="currentColor"
+      stroke="none"
+      d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z"
+    />
+  ),
+  x: (
+    <path
+      fill="currentColor"
+      stroke="none"
+      d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z"
+    />
+  ),
+  instagram: (
+    <>
+      <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
+      <circle cx="12" cy="12" r="4.2" />
+      <path d="M17.4 6.6h.01" strokeWidth="2.6" />
     </>
   ),
 };

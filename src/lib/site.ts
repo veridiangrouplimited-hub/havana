@@ -14,12 +14,18 @@ export const site = {
   city: "Havana",
   address: "5ta Avenida No. 1402, Miramar, Playa",
   /** Sample values — replace with the Embassy's official details before launch. */
-  email: "info@nigeriahavana.gov.ng",
+  email: "info.havana@foreignaffairs.gov.ng",
   phones: ["+53 7 204 1234", "+53 7 204 5678"],
   emergencyPhone: "+53 5 280 9012",
   headOfMission: "H.E. (Dr) Adaeze N. Okonkwo",
   headOfMissionTitle:
     "Ambassador Extraordinary and Plenipotentiary of the Federal Republic of Nigeria to the Republic of Cuba",
+  /** Sample portrait — replace with the official photograph before launch. */
+  headOfMissionPortrait: {
+    src: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&h=800&q=75",
+    alt: "Official portrait of H.E. (Dr) Adaeze N. Okonkwo, Ambassador of the Federal Republic of Nigeria to the Republic of Cuba",
+    credit: "Sample portrait — replace with the official photograph",
+  },
   officeHours: [
     { days: "Monday – Friday", hours: "9:00 am – 4:00 pm" },
     { days: "Consular submissions", hours: "9:30 am – 12:30 pm" },
@@ -28,9 +34,9 @@ export const site = {
   /** Placeholder — replace with the Embassy's production domain. */
   url: "https://nigeriahavana.gov.ng",
   social: [
-    { label: "Facebook", href: "https://facebook.com/NigeriaEmbassyHavana" },
-    { label: "X (Twitter)", href: "https://x.com/NigeriaHavana" },
-    { label: "Instagram", href: "https://instagram.com/nigeriaembassyhavana" },
+    { label: "Facebook", href: "https://facebook.com/NigeriaEmbassyHavana", icon: "facebook" },
+    { label: "X (Twitter)", href: "https://x.com/NigeriaHavana", icon: "x" },
+    { label: "Instagram", href: "https://instagram.com/nigeriaembassyhavana", icon: "instagram" },
   ],
 };
 
