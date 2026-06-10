@@ -3,6 +3,7 @@ import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Icon, { type IconName } from "@/components/Icon";
 import RouteMap from "@/components/RouteMap";
+import { NigeriaFlag, CubaFlag } from "@/components/Flags";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -91,14 +92,23 @@ export default function RelationsPage() {
       <div className="mx-auto max-w-7xl px-4 py-16">
         {/* Havana ↔ Abuja route map */}
         <section aria-labelledby="route-heading" className="mb-16 overflow-hidden rounded border border-line bg-white shadow-sm">
-          <div className="border-b border-line bg-mist/60 px-6 py-5">
-            <p className="mb-1 flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.24em] text-brand-deep">
-              <span className="inline-block h-px w-9 bg-gold" aria-hidden="true" />
-              Havana ↔ Abuja
-            </p>
-            <h2 id="route-heading" className="font-serif text-xl font-bold text-brand-deep md:text-2xl">
-              Two Nations, One Atlantic
-            </h2>
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-line bg-mist/60 px-6 py-5">
+            <div>
+              <p className="mb-1 flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.24em] text-brand-deep">
+                <span className="inline-block h-px w-9 bg-gold" aria-hidden="true" />
+                Havana ↔ Abuja
+              </p>
+              <h2 id="route-heading" className="font-serif text-xl font-bold text-brand-deep md:text-2xl">
+                Two Nations, One Atlantic
+              </h2>
+            </div>
+            <div className="flex items-center gap-3">
+              <CubaFlag className="h-7 w-[52px] rounded-sm shadow-sm" />
+              <span className="text-gold" aria-hidden="true">
+                ◆
+              </span>
+              <NigeriaFlag className="h-7 w-[52px] rounded-sm shadow-sm" />
+            </div>
           </div>
           <div className="px-4 py-6 md:px-8">
             <RouteMap tone="light" className="mx-auto w-full max-w-4xl" />

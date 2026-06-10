@@ -11,6 +11,7 @@ import FlagStripe from "@/components/FlagStripe";
 import SectionDivider from "@/components/SectionDivider";
 import NigeriaMap from "@/components/NigeriaMap";
 import RouteMap from "@/components/RouteMap";
+import { NigeriaFlag, CubaFlag } from "@/components/Flags";
 
 const nigeriaFacts = [
   { label: "Capital", value: "Abuja" },
@@ -362,6 +363,16 @@ export default function Home() {
             link={{ label: "Explore bilateral relations", href: "/relations" }}
             tone="dark"
           />
+          <div className="-mt-2 mb-9 flex flex-wrap items-center gap-3.5">
+            <NigeriaFlag className="h-7 w-[52px] rounded-sm shadow-md ring-1 ring-white/30" />
+            <span className="text-gold" aria-hidden="true">
+              ◆
+            </span>
+            <CubaFlag className="h-7 w-[52px] rounded-sm shadow-md ring-1 ring-white/30" />
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/75">
+              Federal Republic of Nigeria · Republic of Cuba
+            </p>
+          </div>
           <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {relationsAreas.map((a) => (
               <li
