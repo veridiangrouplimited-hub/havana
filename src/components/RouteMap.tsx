@@ -1,4 +1,5 @@
 import { NIGERIA_PATH } from "@/components/NigeriaMap";
+import { NigeriaFlagShapes, CubaFlagShapes } from "@/components/Flags";
 
 /**
  * Decorative Atlantic route map connecting Havana and Abuja —
@@ -47,7 +48,7 @@ export default function RouteMap({
         <path d={CUBA_PATH} fill={cubaFill} stroke={landStroke} strokeWidth="1.5" />
         <circle cx="118" cy="60" r="4.5" fill={cubaFill} stroke={landStroke} strokeWidth="1" />
         <text
-          x="86"
+          x="100"
           y="92"
           textAnchor="middle"
           fill={label}
@@ -57,6 +58,10 @@ export default function RouteMap({
         >
           CUBA
         </text>
+        <svg x="34" y="76" width="40" height="20" viewBox="0 0 60 30">
+          <CubaFlagShapes />
+          <rect width="60" height="30" fill="none" stroke={landStroke} strokeWidth="1.5" />
+        </svg>
       </g>
 
       {/* Havana marker */}
@@ -71,7 +76,7 @@ export default function RouteMap({
         <path d={NIGERIA_PATH} fill={nigeriaFill} stroke={landStroke} strokeWidth="0.8" />
       </g>
       <text
-        x="745"
+        x="762"
         y="360"
         textAnchor="middle"
         fill={label}
@@ -81,6 +86,10 @@ export default function RouteMap({
       >
         NIGERIA
       </text>
+      <svg x="688" y="344" width="40" height="20" viewBox="0 0 60 30">
+        <NigeriaFlagShapes />
+        <rect width="60" height="30" fill="none" stroke={landStroke} strokeWidth="1.5" />
+      </svg>
 
       {/* Abuja marker (40,50 in map space, scaled) */}
       <circle cx="724" cy="215" r="5.5" fill={gold} />
