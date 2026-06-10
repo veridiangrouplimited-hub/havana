@@ -22,8 +22,8 @@ export const site = {
     "Ambassador Extraordinary and Plenipotentiary of the Federal Republic of Nigeria to the Republic of Cuba",
   /** Sample portrait — replace with the official photograph before launch. */
   headOfMissionPortrait: {
-    src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&crop=faces&w=600&h=800&q=75",
-    alt: "Official portrait of H.E. (Dr) Adaeze N. Okonkwo, Ambassador of the Federal Republic of Nigeria to the Republic of Cuba, in corporate attire",
+    src: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&crop=faces&w=600&h=800&q=75",
+    alt: "Official portrait of H.E. (Dr) Adaeze N. Okonkwo, Ambassador of the Federal Republic of Nigeria to the Republic of Cuba, in traditional ankara attire",
     credit: "Sample official portrait — replace with the Embassy's photograph",
   },
   officeHours: [
