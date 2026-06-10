@@ -24,10 +24,10 @@ export default function ContactPage() {
         lead="Reach the Mission by phone, email or the enquiry form below. For emergencies involving a Nigerian citizen, call the 24-hour line at any time."
         crumbs={[{ label: "Contact Us" }]}
       />
-      <div className="mx-auto max-w-7xl px-4 py-12">
+      <div className="mx-auto max-w-7xl px-4 py-16">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
           {/* Contact details */}
-          <div className="space-y-7">
+          <div className="space-y-9">
             <section aria-labelledby="address-heading">
               <h2 id="address-heading" className="mb-3 flex items-center gap-2 font-serif text-xl font-bold text-brand-deep">
                 <Icon name="pin" className="h-5 w-5" />
@@ -40,15 +40,25 @@ export default function ContactPage() {
                 <br />
                 {site.city}, {site.hostCountry}
               </address>
-              <div
-                className="mt-4 flex h-56 items-center justify-center rounded border border-line bg-mist text-center text-sm text-ink/60"
-                role="img"
-                aria-label={`Map showing the location of the Mission at ${site.address}, ${site.city}`}
-              >
-                <p className="px-6">
-                  [Embedded map — replace with the Mission's Google Maps or OpenStreetMap embed]
-                </p>
+              <div className="mt-4 overflow-hidden rounded border border-line">
+                <iframe
+                  title={`Map showing the location of the Embassy at ${site.address}, ${site.city}`}
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=-82.445%2C23.105%2C-82.395%2C23.135&layer=mapnik&marker=23.1185%2C-82.4203"
+                  className="h-64 w-full border-0"
+                  loading="lazy"
+                />
               </div>
+              <p className="mt-2 text-xs">
+                <a
+                  href="https://www.openstreetmap.org/?mlat=23.1185&mlon=-82.4203#map=15/23.1185/-82.4203"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-brand underline"
+                >
+                  View larger map
+                  <span className="sr-only">(opens in a new tab)</span>
+                </a>
+              </p>
             </section>
 
             <section aria-labelledby="phones-heading">

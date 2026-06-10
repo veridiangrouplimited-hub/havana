@@ -18,7 +18,7 @@ export default function ConsularServicesPage() {
         lead="Clear, step-by-step guidance for every consular service the Mission provides. All services are by appointment, and all official fees are paid online — never in cash."
         crumbs={[{ label: "Consular Services" }]}
       />
-      <div className="mx-auto max-w-7xl px-4 py-12">
+      <div className="mx-auto max-w-7xl px-4 py-16">
         <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
             <li key={s.slug}>

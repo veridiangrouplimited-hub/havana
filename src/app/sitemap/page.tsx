@@ -52,7 +52,7 @@ export default function SitemapPage() {
         lead="Every page on this website, organised by section."
         crumbs={[{ label: "Sitemap" }]}
       />
-      <div className="mx-auto max-w-7xl px-4 py-12">
+      <div className="mx-auto max-w-7xl px-4 py-16">
         <div className="grid gap-10 md:grid-cols-2">
           {groups.map((g) => (
             <section key={g.heading} aria-labelledby={g.heading.replace(/\s+/g, "-").toLowerCase()}>

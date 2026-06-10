@@ -44,14 +44,14 @@ const unsplash = (id: string, w = 1200) =>
 export const news: NewsItem[] = [
   {
     slug: "presentation-of-letters-of-credence",
-    title: "[Head of Mission Name] Presents Letters of Credence",
+    title: "H.E. (Dr) Adaeze N. Okonkwo Presents Letters of Credence",
     category: "News",
     date: "2026-05-28",
     department: "Office of the Head of Mission",
     excerpt:
       "The Head of Mission formally presented Letters of Credence to the Head of State of Cuba, reaffirming Nigeria's commitment to strengthening bilateral relations.",
     body: [
-      "[Head of Mission Name] on [Date] presented Letters of Credence to His Excellency the Head of State of Cuba at a formal ceremony in Havana.",
+      "H.E. (Dr) Adaeze N. Okonkwo on 26 May 2026 presented Letters of Credence to His Excellency the Head of State of Cuba at a formal ceremony in Havana.",
       "Speaking after the ceremony, the Head of Mission conveyed the warm greetings of the President of the Federal Republic of Nigeria and reaffirmed Nigeria's commitment to deepening the longstanding ties of friendship and cooperation between the two countries.",
       "Discussions covered trade and investment, educational exchange and the welfare of the Nigerian community in Cuba. Both sides agreed to convene the next session of the bilateral joint commission at an early date.",
     ],
@@ -71,7 +71,7 @@ export const news: NewsItem[] = [
       "Nigerians resident outside Havana will be able to access passport biometric capture and NIN enrolment at regional outreach centres each quarter.",
     body: [
       "The Embassy of Nigeria in Havana is pleased to announce a quarterly consular outreach programme to bring passport biometric capture, NIN enrolment and general consular services closer to Nigerians living outside Havana.",
-      "The first outreach will hold on [Date] at [Venue]. Eligible applicants must complete their applications online before attending and should bring all supporting documents listed on the Embassy's website.",
+      "The first outreach will hold on Saturday 18 July 2026 at the Casa de la Amistad, Santiago de Cuba. Eligible applicants must complete their applications online before attending and should bring all supporting documents listed on the Embassy's website.",
       "Dates and venues for subsequent outreach sessions will be published on this website and on the Embassy's official social media channels.",
     ],
     image: {
@@ -127,7 +127,7 @@ export const news: NewsItem[] = [
     excerpt:
       "Business leaders from both countries met at the Embassy to explore opportunities in agriculture, energy, technology and the creative economy.",
     body: [
-      "The Embassy on [Date] hosted a trade and investment roundtable bringing together over [Number] business leaders, investors and trade officials from Nigeria and Cuba.",
+      "The Embassy on 6 April 2026 hosted a trade and investment roundtable bringing together over 60 business leaders, investors and trade officials from Nigeria and Cuba.",
       "Sessions focused on opportunities in agriculture and agro-processing, renewable energy, digital technology and Nigeria's fast-growing creative economy, alongside practical guidance on market entry and investment protection.",
       "The Embassy's Trade and Investment Section provides year-round support to investors. Interested companies may contact the Embassy at info@nigeriahavana.gov.ng.",
     ],
@@ -146,7 +146,7 @@ export const news: NewsItem[] = [
     excerpt:
       "Community leaders and residents discussed consular service delivery, community welfare and diaspora participation in national development.",
     body: [
-      "[Head of Mission Name] hosted a town hall meeting with members of the Nigerian community in Havana, attended by community association leaders, professionals and students.",
+      "H.E. (Dr) Adaeze N. Okonkwo hosted a town hall meeting with members of the Nigerian community in Havana, attended by community association leaders, professionals and students.",
       "Topics included improvements to passport processing, the Embassy's new appointment system, voter registration for eligible Nigerians abroad and opportunities for diaspora investment in Nigeria.",
       "The Head of Mission thanked the community for its continued good conduct and contribution to Cuba, and pledged regular engagement through quarterly town hall meetings.",
     ],

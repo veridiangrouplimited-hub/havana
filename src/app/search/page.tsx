@@ -16,7 +16,7 @@ export default function SearchPage() {
         lead="Find consular services, public notices, news and information across this website."
         crumbs={[{ label: "Search" }]}
       />
-      <div className="mx-auto max-w-4xl px-4 py-12">
+      <div className="mx-auto max-w-4xl px-4 py-16">
         <Suspense fallback={<p className="text-sm text-ink/70">Loading search…</p>}>
           <SearchResults />
         </Suspense>

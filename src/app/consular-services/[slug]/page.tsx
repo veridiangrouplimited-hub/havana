@@ -51,7 +51,7 @@ export default async function ServicePage({
         ]}
       />
 
-      <div className="mx-auto max-w-7xl px-4 py-10 md:py-12">
+      <div className="mx-auto max-w-7xl px-4 py-12 md:py-16">
         {/* Quick facts */}
         <div className="mb-10 grid gap-4 sm:grid-cols-3">
           <div className="flex items-start gap-3 rounded border border-line bg-mist p-4">
@@ -93,7 +93,7 @@ export default async function ServicePage({
                 <div className="max-w-3xl">
                   <H2>What is this service?</H2>
                   {service.overview.map((p, i) => (
-                    <p key={i} className="mb-4 text-sm leading-relaxed text-ink/90 md:text-base">
+                    <p key={i} className="mb-5 text-sm leading-relaxed text-ink/90 md:text-base">
                       {p}
                     </p>
                   ))}

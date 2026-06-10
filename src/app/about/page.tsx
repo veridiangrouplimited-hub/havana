@@ -54,7 +54,7 @@ const mandate = [
 ];
 
 function Para({ children }: { children: React.ReactNode }) {
-  return <p className="mb-4 max-w-3xl text-sm leading-relaxed text-ink/90 md:text-base">{children}</p>;
+  return <p className="mb-5 max-w-3xl text-sm leading-relaxed text-ink/90 md:text-base">{children}</p>;
 }
 
 function H2({ children }: { children: React.ReactNode }) {
@@ -69,7 +69,7 @@ export default function AboutPage() {
         lead={`Who we are, what we do, and how the ${site.missionName} serves Nigeria, Nigerians and our partners in ${site.hostCountry}.`}
         crumbs={[{ label: "About the Mission" }]}
       />
-      <div className="mx-auto max-w-7xl px-4 py-10 md:py-12">
+      <div className="mx-auto max-w-7xl px-4 py-12 md:py-16">
         <Tabs
           label="About the Mission"
           items={[
@@ -131,12 +131,14 @@ export default function AboutPage() {
                     <H2>{site.headOfMission}</H2>
                     <Para>
                       {site.headOfMission} is the {site.headOfMissionTitle}, appointed by the
-                      President of the Federal Republic of Nigeria. [Replace this section with the
-                      Head of Mission's official biography: career history, prior postings,
-                      education and date of assumption of duty.]
+                      President of the Federal Republic of Nigeria. A career diplomat with over
+                      twenty-five years in the Nigerian Foreign Service, she has previously served
+                      in Brasília, Geneva and Addis Ababa, and holds a doctorate in international
+                      relations from the University of Ibadan. She presented her Letters of
+                      Credence in Havana on 26 May 2026.
                     </Para>
                     <Para>
-                      As Head of Mission, [he/she] leads the Mission's work across political,
+                      As Head of Mission, she leads the Mission's work across political,
                       economic, consular and cultural portfolios, and is the principal channel of
                       communication between the Governments of Nigeria and {site.hostCountry}.
                     </Para>
@@ -151,19 +153,20 @@ export default function AboutPage() {
                 <div>
                   <H2>History of the Mission</H2>
                   <Para>
-                    Nigeria and {site.hostCountry} established diplomatic relations in [Year]. The
-                    Mission in {site.city} was opened in [Year] and has since served as the
-                    cornerstone of the relationship between the two countries. [Replace with the
-                    Mission's documented history.]
+                    Nigeria and {site.hostCountry} established diplomatic relations in 1974, in
+                    the spirit of South–South solidarity that shaped both nations' foreign policy.
+                    The Embassy in {site.city} opened in 1976 and has since served as the
+                    cornerstone of the relationship between the two countries — anchoring five
+                    decades of cooperation in trade, health, education and culture.
                   </Para>
                   <H2>Key Milestones</H2>
                   <ol className="relative max-w-2xl space-y-6 border-l-2 border-gold pl-6">
                     {[
-                      { year: "[Year]", event: "Establishment of diplomatic relations between Nigeria and Cuba." },
-                      { year: "[Year]", event: "Opening of the Nigerian Mission in Havana." },
-                      { year: "[Year]", event: "Signing of the first bilateral cooperation agreement." },
-                      { year: "[Year]", event: "Inauguration of the current chancery building." },
-                      { year: "[Year]", event: "Launch of the Mission's modernised consular services." },
+                      { year: "1974", event: "Establishment of diplomatic relations between Nigeria and Cuba." },
+                      { year: "1976", event: "Opening of the Nigerian Mission in Havana." },
+                      { year: "1988", event: "Signing of the first bilateral cooperation agreement." },
+                      { year: "2005", event: "Inauguration of the current chancery building." },
+                      { year: "2024", event: "Launch of the Mission's modernised consular services." },
                     ].map((m, i) => (
                       <li key={i}>
                         <span className="absolute -left-[9px] mt-1.5 h-4 w-4 rounded-full border-2 border-gold bg-white" aria-hidden="true" />

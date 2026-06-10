@@ -21,8 +21,8 @@ export default function PublicNoticesPage() {
         lead="Official announcements, consular advisories, holiday notices and service updates. Notices are listed with the most recent first."
         crumbs={[{ label: "Public Notices" }]}
       />
-      <div className="mx-auto max-w-4xl px-4 py-12">
-        <ul className="space-y-6">
+      <div className="mx-auto max-w-4xl px-4 py-16">
+        <ul className="space-y-9">
           {sorted.map((n) => (
             <li key={n.id}>
               <article

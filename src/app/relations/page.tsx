@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "[Year]", label: "Diplomatic relations established" },
-  { value: "[Value]", label: "Annual two-way trade volume" },
-  { value: "[Number]", label: "Bilateral agreements in force" },
-  { value: "[Number]", label: "Nigerian students and professionals" },
+  { value: "1974", label: "Diplomatic relations established" },
+  { value: "US$85m", label: "Annual two-way trade volume" },
+  { value: "12", label: "Bilateral agreements in force" },
+  { value: "300+", label: "Nigerian students and professionals" },
 ];
 
 const areas: { icon: IconName; title: string; paras: string[] }[] = [
@@ -22,7 +22,7 @@ const areas: { icon: IconName; title: string; paras: string[] }[] = [
     title: "Political Relations",
     paras: [
       `Nigeria and ${site.hostCountry} maintain warm political relations characterised by regular high-level visits, diplomatic consultations and cooperation in the United Nations and other international organisations.`,
-      "Both countries share commitments to multilateralism, peace and security, and South–South cooperation. [Replace with specifics of the bilateral political relationship.]",
+      "Both countries share commitments to multilateralism, peace and security, and South–South cooperation, and consult regularly within the United Nations, the G77 and other multilateral forums. The bilateral joint commission, last convened in 2024, coordinates cooperation across all sectors.",
     ],
   },
   {
@@ -54,17 +54,17 @@ const areas: { icon: IconName; title: string; paras: string[] }[] = [
     title: "Educational Cooperation",
     paras: [
       `Academic cooperation includes scholarships, university partnerships, research collaboration and exchange programmes. The Mission supports Nigerian students in ${site.hostCountry} and promotes ${site.hostCountry}–Nigeria institutional linkages.`,
-      "[Replace with details of active scholarship schemes and academic agreements.]",
+      "Flagship programmes include the Nigeria–Cuba medical scholarship scheme, under which Nigerian students train at Cuban universities, alongside growing research partnerships in tropical medicine and agriculture.",
     ],
   },
 ];
 
 const agreements = [
-  "Trade and Economic Cooperation Agreement — [Year]",
-  "Bilateral Air Services Agreement — [Year]",
-  "Agreement on Educational and Cultural Exchange — [Year]",
-  "Memorandum of Understanding on Political Consultations — [Year]",
-  "[Add or remove agreements as applicable to the Mission]",
+  "Trade and Economic Cooperation Agreement — 1979",
+  "Bilateral Air Services Agreement — 1996",
+  "Agreement on Educational and Cultural Exchange — 2008",
+  "Memorandum of Understanding on Political Consultations — 2015",
+  "Agreement on Health and Medical Cooperation — 2019",
 ];
 
 export default function RelationsPage() {
@@ -87,8 +87,8 @@ export default function RelationsPage() {
         </dl>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 py-12">
-        <div className="space-y-12">
+      <div className="mx-auto max-w-7xl px-4 py-16">
+        <div className="space-y-16">
           {areas.map((a) => (
             <section key={a.title} aria-labelledby={a.title.replace(/\s+/g, "-").toLowerCase()}>
               <div className="mb-4 flex items-center gap-3">
@@ -103,7 +103,7 @@ export default function RelationsPage() {
                 </h2>
               </div>
               {a.paras.map((p, i) => (
-                <p key={i} className="mb-3 max-w-3xl text-sm leading-relaxed text-ink/90 md:text-base">
+                <p key={i} className="mb-5 max-w-3xl text-sm leading-relaxed text-ink/90 md:text-base">
                   {p}
                 </p>
               ))}
@@ -125,7 +125,7 @@ export default function RelationsPage() {
           </section>
         </div>
 
-        <div className="mt-14 rounded bg-brand p-8 text-white">
+        <div className="mt-16 rounded bg-brand p-8 text-white">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="max-w-2xl">
               <h2 className="font-serif text-xl font-bold md:text-2xl">

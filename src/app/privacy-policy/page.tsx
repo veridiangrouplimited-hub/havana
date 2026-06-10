@@ -56,13 +56,13 @@ export default function PrivacyPolicyPage() {
         lead="This website collects the minimum personal information necessary to serve you, and protects what it collects."
         crumbs={[{ label: "Privacy Policy" }]}
       />
-      <div className="mx-auto max-w-3xl px-4 py-12">
-        <p className="mb-8 text-sm text-ink/70">Last updated: [Date]</p>
+      <div className="mx-auto max-w-3xl px-4 py-16">
+        <p className="mb-8 text-sm text-ink/70">Last updated: 1 June 2026</p>
         {sections.map((s) => (
-          <section key={s.h} className="mb-8">
+          <section key={s.h} className="mb-10">
             <h2 className="mb-3 font-serif text-xl font-bold text-brand-deep">{s.h}</h2>
             {s.ps.map((p, i) => (
-              <p key={i} className="mb-3 text-sm leading-relaxed text-ink/90 md:text-base">
+              <p key={i} className="mb-4 text-sm leading-relaxed text-ink/90 md:text-base">
                 {p}
               </p>
             ))}

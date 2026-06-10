@@ -56,7 +56,7 @@ export default function DiasporaPage() {
         crumbs={[{ label: "Nigerians in Diaspora" }]}
       />
 
-      <div className="mx-auto max-w-7xl px-4 py-12">
+      <div className="mx-auto max-w-7xl px-4 py-16">
         {/* Registration */}
         <section aria-labelledby="registration-heading" className="grid gap-10 lg:grid-cols-2">
           <div>
@@ -137,7 +137,7 @@ export default function DiasporaPage() {
         </section>
 
         {/* Programmes */}
-        <section aria-labelledby="programmes-heading" className="mt-16">
+        <section aria-labelledby="programmes-heading" className="mt-20">
           <h2 id="programmes-heading" className="font-serif text-2xl font-bold text-brand-deep">
             Diaspora Engagement Programmes
           </h2>
@@ -154,7 +154,7 @@ export default function DiasporaPage() {
         </section>
 
         {/* Community notices + links */}
-        <section aria-labelledby="community-heading" className="mt-16 grid gap-10 lg:grid-cols-2">
+        <section aria-labelledby="community-heading" className="mt-20 grid gap-10 lg:grid-cols-2">
           <div>
             <h2 id="community-heading" className="font-serif text-2xl font-bold text-brand-deep">
               Community Notices & Advisories

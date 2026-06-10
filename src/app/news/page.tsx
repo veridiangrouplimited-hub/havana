@@ -17,7 +17,7 @@ export default function NewsPage() {
         lead="Official news, press releases, speeches, statements and activities of the Mission. Use the filters to find what you need."
         crumbs={[{ label: "News & Press" }]}
       />
-      <div className="mx-auto max-w-7xl px-4 py-12">
+      <div className="mx-auto max-w-7xl px-4 py-16">
         <NewsList items={news} />
       </div>
     </>

@@ -83,7 +83,7 @@ export default function Tabs({ items, label }: { items: TabItem[]; label: string
           aria-labelledby={`tab-${tab.id}`}
           hidden={active !== tab.id}
           tabIndex={0}
-          className="py-7"
+          className="py-9"
         >
           {tab.content}
         </div>

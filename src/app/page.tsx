@@ -266,7 +266,7 @@ export default function Home() {
               icon="bell"
               link={{ label: "All news", href: "/news" }}
             />
-            <ul className="space-y-5">
+            <ul className="space-y-9">
               {latestNews.map((n) => (
                 <li
                   key={n.slug}

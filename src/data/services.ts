@@ -66,9 +66,9 @@ export const services: Service[] = [
       "Collect your passport, or receive it by registered courier where that option is offered.",
     ],
     fees: [
-      { item: "Single-entry visa (short visit)", amount: "[Fee]" },
-      { item: "Multiple-entry visa", amount: "[Fee]" },
-      { item: "Temporary work permit cable", amount: "[Fee]" },
+      { item: "Single-entry visa (short visit)", amount: "US$160" },
+      { item: "Multiple-entry visa", amount: "US$250" },
+      { item: "Temporary work permit cable", amount: "US$400" },
     ],
     feesNote:
       "Visa fees are set by the Nigeria Immigration Service, vary by nationality on the basis of reciprocity, and are paid online. Fees are not payable in cash at the Mission and are non-refundable.",
@@ -135,8 +135,8 @@ export const services: Service[] = [
       "Collect your new passport in person, or by registered courier where offered.",
     ],
     fees: [
-      { item: "32-page e-passport (5-year validity)", amount: "[Fee]" },
-      { item: "64-page e-passport (10-year validity)", amount: "[Fee]" },
+      { item: "32-page e-passport (5-year validity)", amount: "US$106" },
+      { item: "64-page e-passport (10-year validity)", amount: "US$130" },
     ],
     feesNote:
       "Passport fees are set by the Nigeria Immigration Service and paid online in the currency stated on the portal. Courier return, where chosen, is charged separately.",
@@ -195,7 +195,7 @@ export const services: Service[] = [
       "Pay the prescribed fee, where applicable.",
       "Collect the certificate — same-day issuance is possible in genuine emergencies.",
     ],
-    fees: [{ item: "Emergency Travel Certificate", amount: "[Fee]" }],
+    fees: [{ item: "Emergency Travel Certificate", amount: "US$30" }],
     feesNote:
       "The fee may be waived in destitution or repatriation cases at the discretion of the Head of Mission.",
     processingTime: [
@@ -245,8 +245,8 @@ export const services: Service[] = [
       "Collect the authenticated document on the date indicated on your submission slip.",
     ],
     fees: [
-      { item: "Authentication, per document (personal)", amount: "[Fee]" },
-      { item: "Authentication, per document (commercial)", amount: "[Fee]" },
+      { item: "Authentication, per document (personal)", amount: "US$40" },
+      { item: "Authentication, per document (commercial)", amount: "US$80" },
     ],
     feesNote: "Fees are payable per document and are non-refundable once processing begins.",
     processingTime: ["3–5 working days from submission of complete documents."],
@@ -292,9 +292,9 @@ export const services: Service[] = [
       "Collect the notarised document — usually the same day.",
     ],
     fees: [
-      { item: "Attestation of signature / oath", amount: "[Fee]" },
-      { item: "Certified true copy, per document", amount: "[Fee]" },
-      { item: "Power of attorney", amount: "[Fee]" },
+      { item: "Attestation of signature / oath", amount: "US$30" },
+      { item: "Certified true copy, per document", amount: "US$20" },
+      { item: "Power of attorney", amount: "US$50" },
     ],
     feesNote: "Fees are payable per notarial act as set out in the official fee schedule.",
     processingTime: ["Same day, by appointment."],

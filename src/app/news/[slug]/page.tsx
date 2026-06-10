@@ -54,7 +54,7 @@ export default async function NewsArticlePage({
         title={item.title}
         crumbs={[{ label: "News & Press", href: "/news" }, { label: item.title }]}
       />
-      <div className="mx-auto max-w-7xl px-4 py-12">
+      <div className="mx-auto max-w-7xl px-4 py-16">
         <div className="grid gap-12 lg:grid-cols-[2fr_1fr]">
           <article aria-labelledby="article-meta">
             <div id="article-meta" className="mb-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
@@ -71,7 +71,7 @@ export default async function NewsArticlePage({
               </span>
             </div>
 
-            <figure className="mb-8">
+            <figure className="mb-10">
               <div className="relative aspect-[16/8] overflow-hidden rounded border border-line bg-mist shadow-sm">
                 <Image
                   src={item.image.src}
@@ -88,7 +88,7 @@ export default async function NewsArticlePage({
               </figcaption>
             </figure>
 
-            <div className="max-w-3xl space-y-5">
+            <div className="max-w-3xl space-y-6">
               {item.body.map((p, i) => (
                 <p key={i} className="text-base leading-relaxed text-ink/90">
                   {p}

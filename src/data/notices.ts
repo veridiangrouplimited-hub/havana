@@ -33,7 +33,7 @@ export const notices: Notice[] = [
     priority: "Service Update",
     date: "2026-06-02",
     body: [
-      "The passport biometric capture system will be unavailable on [Date] due to scheduled maintenance by the Nigeria Immigration Service.",
+      "The passport biometric capture system will be unavailable on Monday 15 June 2026 due to scheduled maintenance by the Nigeria Immigration Service.",
       "Affected applicants will be contacted to reschedule their appointments at no additional cost. All other consular services will operate normally.",
     ],
   },
@@ -43,8 +43,8 @@ export const notices: Notice[] = [
     priority: "Holiday Notice",
     date: "2026-05-26",
     body: [
-      "The Mission will be closed on [Date] in observance of Eid-el-Kabir. Normal services resume on [Date].",
-      "For emergencies involving Nigerian citizens during the closure, please call the 24-hour emergency line: [+53 5 XXX XXXX].",
+      "The Mission will be closed on Wednesday 27 May 2026 in observance of Eid-el-Kabir. Normal services resume on Thursday 28 May 2026.",
+      "For emergencies involving Nigerian citizens during the closure, please call the 24-hour emergency line: +53 5 280 9012.",
     ],
   },
   {
@@ -73,7 +73,7 @@ export const notices: Notice[] = [
     priority: "Important",
     date: "2026-04-18",
     body: [
-      "Applicants whose passports were captured before [Date] and remain uncollected are requested to collect them on or before [Date].",
+      "Applicants whose passports were captured before 1 March 2026 and remain uncollected are requested to collect them on or before 31 July 2026.",
       "Bring your collection slip and valid identification. Passports uncollected after this date will be returned to the Nigeria Immigration Service in line with regulations.",
     ],
   },
@@ -84,7 +84,7 @@ export const notices: Notice[] = [
     date: "2026-03-30",
     body: [
       "The Mission has introduced an online appointment system for all consular services to reduce waiting times.",
-      "From [Date], walk-in submissions will be accepted only for emergencies. Book your appointment through the Contact page or at info@nigeriahavana.gov.ng.",
+      "From 1 April 2026, walk-in submissions will be accepted only for emergencies. Book your appointment through the Contact page or at info@nigeriahavana.gov.ng.",
     ],
   },
 ];
