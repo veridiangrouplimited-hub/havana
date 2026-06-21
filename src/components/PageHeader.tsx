@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import FlagStripe from "@/components/FlagStripe";
+import WatermarkSeal from "@/components/WatermarkSeal";
 
 export interface Crumb {
   label: string;
@@ -20,15 +20,7 @@ export default function PageHeader({
     <div className="relative overflow-hidden bg-gradient-to-br from-brand-dark via-brand to-brand-deep text-white">
       <div className="pattern-diagonal absolute inset-0" aria-hidden="true" />
       <div className="glow-gold absolute inset-0" aria-hidden="true" />
-      <Image
-        src="/images/mfa-logo.png"
-        alt=""
-        width={340}
-        height={340}
-        className="pointer-events-none absolute -bottom-16 -right-10 hidden h-72 w-72 object-contain opacity-[0.13] md:block"
-        style={{ filter: "grayscale(1) invert(1) brightness(5) contrast(12)" }}
-        aria-hidden="true"
-      />
+      <WatermarkSeal className="pointer-events-none absolute -bottom-16 -right-10 hidden h-72 w-72 text-white opacity-[0.15] md:block" />
       <div className="relative mx-auto max-w-7xl px-4 py-11 md:py-16">
         <nav aria-label="Breadcrumb" className="mb-5">
           <ol className="flex flex-wrap items-center gap-1.5 text-xs text-white/80 md:text-sm">

@@ -13,6 +13,7 @@ import NigeriaMap from "@/components/NigeriaMap";
 import RouteMap from "@/components/RouteMap";
 import { NigeriaFlag, CubaFlag } from "@/components/Flags";
 import NewsCarousel from "@/components/NewsCarousel";
+import WatermarkSeal from "@/components/WatermarkSeal";
 
 const nigeriaFacts = [
   { label: "Capital", value: "Abuja" },
@@ -62,16 +63,7 @@ export default function Home() {
       >
         <div className="pattern-diagonal absolute inset-0" aria-hidden="true" />
         <div className="glow-gold absolute inset-0" aria-hidden="true" />
-        <Image
-          src="/images/mfa-logo.png"
-          alt=""
-          width={520}
-          height={520}
-          className="pointer-events-none absolute -bottom-24 -right-16 hidden h-[26rem] w-[26rem] object-contain opacity-[0.11] lg:block"
-          style={{ filter: "grayscale(1) invert(1) brightness(5) contrast(12)" }}
-          aria-hidden="true"
-          priority
-        />
+        <WatermarkSeal className="pointer-events-none absolute -bottom-24 -right-16 hidden h-[26rem] w-[26rem] text-white opacity-[0.13] lg:block" />
         <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-16 md:py-24 lg:grid-cols-[1.65fr_1fr]">
           <div>
             <p className="mb-4 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.26em] text-gold">

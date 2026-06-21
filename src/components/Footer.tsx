@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { site, govLinks } from "@/lib/site";
+import WatermarkSeal from "@/components/WatermarkSeal";
 import Icon, { type IconName } from "@/components/Icon";
 import FlagStripe from "@/components/FlagStripe";
 
@@ -25,15 +26,7 @@ export default function Footer() {
     <footer className="relative overflow-hidden bg-brand-dark text-white">
       <FlagStripe className="h-1.5" />
       <div className="h-px bg-gold/60" aria-hidden="true" />
-      <Image
-        src="/images/mfa-logo.png"
-        alt=""
-        width={420}
-        height={420}
-        className="pointer-events-none absolute -bottom-24 -right-16 hidden h-96 w-96 object-contain opacity-[0.1] lg:block"
-        style={{ filter: "grayscale(1) invert(1) brightness(5) contrast(12)" }}
-        aria-hidden="true"
-      />
+      <WatermarkSeal className="pointer-events-none absolute -bottom-24 -right-16 hidden h-96 w-96 text-white opacity-[0.11] lg:block" />
       <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="mb-4 flex items-center gap-3">
