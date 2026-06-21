@@ -1,8 +1,4 @@
-/**
- * Consular service content. In production this maps 1:1 to a CMS
- * "Service" collection so content officers can edit every field
- * without touching code.
- */
+import { wpQuery, isWpConfigured } from "@/lib/wp";
 
 export interface ServiceFaq {
   q: string;
@@ -31,6 +27,7 @@ export interface Service {
   externalLinks: { label: string; href: string }[];
 }
 
+// Static fallback — used when WORDPRESS_URL is not set or WP is unreachable.
 export const services: Service[] = [
   {
     slug: "visa-services",
@@ -361,6 +358,86 @@ export const services: Service[] = [
   },
 ];
 
-export function getService(slug: string): Service | undefined {
-  return services.find((s) => s.slug === slug);
+// ── WordPress ────────────────────────────────────────────────────────────────
+
+type WPService = {
+  slug: string;
+  title: string;
+  serviceFields: {
+    icon: string;
+    summary: string;
+    overview: { text: string }[];
+    eligibility: { text: string }[];
+    requirements: { text: string }[];
+    process: { text: string }[];
+    fees: { item: string; amount: string }[];
+    feesNote: string;
+    processingTime: { text: string }[];
+    faqs: { q: string; a: string }[];
+    forms: { label: string; href: string }[];
+    externalLinks: { label: string; href: string }[];
+  };
+};
+
+const SERVICES_QUERY = /* GraphQL */ `
+  query GetServices {
+    services(
+      first: 100
+      where: { status: PUBLISH, orderby: { field: MENU_ORDER, order: ASC } }
+    ) {
+      nodes {
+        slug
+        title
+        serviceFields {
+          icon
+          summary
+          overview { text }
+          eligibility { text }
+          requirements { text }
+          process { text }
+          fees { item amount }
+          feesNote
+          processingTime { text }
+          faqs { q a }
+          forms { label href }
+          externalLinks { label href }
+        }
+      }
+    }
+  }
+`;
+
+function mapService(wp: WPService): Service {
+  const f = wp.serviceFields;
+  return {
+    slug: wp.slug,
+    title: wp.title,
+    icon: f.icon,
+    summary: f.summary,
+    overview: f.overview.map((r) => r.text),
+    eligibility: f.eligibility.map((r) => r.text),
+    requirements: f.requirements.map((r) => r.text),
+    process: f.process.map((r) => r.text),
+    fees: f.fees,
+    feesNote: f.feesNote,
+    processingTime: f.processingTime.map((r) => r.text),
+    faqs: f.faqs,
+    forms: f.forms,
+    externalLinks: f.externalLinks,
+  };
+}
+
+export async function getServices(): Promise<Service[]> {
+  if (!isWpConfigured()) return services;
+  try {
+    const data = await wpQuery<{ services: { nodes: WPService[] } }>(SERVICES_QUERY);
+    return data.services.nodes.map(mapService);
+  } catch {
+    return services;
+  }
+}
+
+export async function getService(slug: string): Promise<Service | undefined> {
+  const all = await getServices();
+  return all.find((s) => s.slug === slug);
 }

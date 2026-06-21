@@ -5,10 +5,11 @@ import PageHeader from "@/components/PageHeader";
 import Tabs from "@/components/Tabs";
 import Accordion from "@/components/Accordion";
 import Icon from "@/components/Icon";
-import { services, getService } from "@/data/services";
+import { getServices, getService } from "@/data/services";
 import { site } from "@/lib/site";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const services = await getServices();
   return services.map((s) => ({ slug: s.slug }));
 }
 
@@ -18,7 +19,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const service = getService(slug);
+  const service = await getService(slug);
   if (!service) return {};
   return {
     title: service.title,
@@ -37,7 +38,7 @@ export default async function ServicePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const service = getService(slug);
+  const service = await getService(slug);
   if (!service) notFound();
 
   return (

@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import Icon from "@/components/Icon";
 import NoticesList from "@/components/NoticesList";
-import { notices } from "@/data/notices";
+import DocumentsList from "@/components/DocumentsList";
+import { getNotices } from "@/data/notices";
+import { getDocuments } from "@/data/documents";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -10,9 +12,10 @@ export const metadata: Metadata = {
   description: `Official announcements, consular advisories, holiday notices and service updates from the ${site.missionName}.`,
 };
 
-const sorted = [...notices].sort((a, b) => b.date.localeCompare(a.date));
+export default async function PublicNoticesPage() {
+  const [notices, documents] = await Promise.all([getNotices(), getDocuments()]);
+  const sorted = [...notices].sort((a, b) => b.date.localeCompare(a.date));
 
-export default function PublicNoticesPage() {
   return (
     <>
       <PageHeader
@@ -37,6 +40,26 @@ export default function PublicNoticesPage() {
             or call {site.phones[0]} during office hours.
           </p>
         </div>
+
+        {/* Consular forms and documents */}
+        <section aria-labelledby="docs-heading" className="mt-16">
+          <h2
+            id="docs-heading"
+            className="mb-1 font-serif text-2xl font-bold text-brand-deep"
+          >
+            Consular Forms &amp; Documents
+          </h2>
+          <p className="mb-6 text-sm text-ink/65">
+            Download official forms and fee schedules. Use the{" "}
+            <strong className="font-semibold text-brand">View</strong> button to preview any
+            document in your browser before downloading.
+          </p>
+          <DocumentsList documents={documents} />
+          <p className="mt-5 text-xs text-ink/45">
+            Documents are provided in PDF format. Ensure your documents are signed and dated
+            before submission. Contact the Mission if you require assistance completing any form.
+          </p>
+        </section>
       </div>
     </>
   );

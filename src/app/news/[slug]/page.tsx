@@ -4,10 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import Icon from "@/components/Icon";
-import { news, getNewsItem, formatDate } from "@/data/news";
+import { getNews, getNewsItem, formatDate } from "@/data/news";
 import { site } from "@/lib/site";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const news = await getNews();
   return news.map((n) => ({ slug: n.slug }));
 }
 
@@ -17,7 +18,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const item = getNewsItem(slug);
+  const item = await getNewsItem(slug);
   if (!item) return {};
   return {
     title: item.title,
@@ -40,10 +41,10 @@ export default async function NewsArticlePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const item = getNewsItem(slug);
+  const [item, allNews] = await Promise.all([getNewsItem(slug), getNews()]);
   if (!item) notFound();
 
-  const related = news
+  const related = allNews
     .filter((n) => n.slug !== item.slug)
     .sort((a, b) => b.date.localeCompare(a.date))
     .slice(0, 3);

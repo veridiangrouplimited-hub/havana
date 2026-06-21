@@ -1,10 +1,4 @@
-/**
- * News, press releases, speeches and official statements.
- * Maps to a CMS "News" collection with category + date metadata.
- *
- * Images are editorial placeholders served from Unsplash; replace each
- * `image.src` with the Mission's own photography before launch.
- */
+import { wpQuery, isWpConfigured, parseAcfDate } from "@/lib/wp";
 
 export type NewsCategory =
   | "News"
@@ -41,6 +35,7 @@ export const newsCategories: NewsCategory[] = [
 const unsplash = (id: string, w = 1200) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=70`;
 
+// Static fallback — used when WORDPRESS_URL is not set or WP is unreachable.
 export const news: NewsItem[] = [
   {
     slug: "presentation-of-letters-of-credence",
@@ -158,14 +153,82 @@ export const news: NewsItem[] = [
   },
 ];
 
-export function getNewsItem(slug: string): NewsItem | undefined {
-  return news.find((n) => n.slug === slug);
-}
-
 export function formatDate(iso: string): string {
   return new Date(iso + "T00:00:00").toLocaleDateString("en-GB", {
     day: "numeric",
     month: "long",
     year: "numeric",
   });
+}
+
+// ── WordPress ────────────────────────────────────────────────────────────────
+
+type WPNewsItem = {
+  slug: string;
+  title: string;
+  newsArticleFields: {
+    category: NewsCategory;
+    newsDate: string;
+    department: string;
+    excerpt: string;
+    body: { text: string }[];
+    image: { node: { sourceUrl: string; altText: string } } | null;
+    imageCredit: string;
+  };
+};
+
+const NEWS_QUERY = /* GraphQL */ `
+  query GetNews {
+    newsArticles(
+      first: 100
+      where: { status: PUBLISH, orderby: { field: DATE, order: DESC } }
+    ) {
+      nodes {
+        slug
+        title
+        newsArticleFields {
+          category
+          newsDate
+          department
+          excerpt
+          body { text }
+          image { node { sourceUrl altText } }
+          imageCredit
+        }
+      }
+    }
+  }
+`;
+
+function mapNewsItem(wp: WPNewsItem): NewsItem {
+  const f = wp.newsArticleFields;
+  return {
+    slug: wp.slug,
+    title: wp.title,
+    category: f.category,
+    date: parseAcfDate(f.newsDate),
+    department: f.department,
+    excerpt: f.excerpt,
+    body: f.body.map((b) => b.text),
+    image: {
+      src: f.image?.node.sourceUrl ?? "",
+      alt: f.image?.node.altText ?? "",
+      credit: f.imageCredit,
+    },
+  };
+}
+
+export async function getNews(): Promise<NewsItem[]> {
+  if (!isWpConfigured()) return news;
+  try {
+    const data = await wpQuery<{ newsArticles: { nodes: WPNewsItem[] } }>(NEWS_QUERY);
+    return data.newsArticles.nodes.map(mapNewsItem);
+  } catch {
+    return news;
+  }
+}
+
+export async function getNewsItem(slug: string): Promise<NewsItem | undefined> {
+  const all = await getNews();
+  return all.find((n) => n.slug === slug);
 }

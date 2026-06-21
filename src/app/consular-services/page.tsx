@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Icon, { type IconName } from "@/components/Icon";
-import { services } from "@/data/services";
+import { getServices } from "@/data/services";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -10,7 +10,8 @@ export const metadata: Metadata = {
   description: `Visa, passport, emergency travel, document authentication, notarial services and consular assistance at the ${site.missionName}.`,
 };
 
-export default function ConsularServicesPage() {
+export default async function ConsularServicesPage() {
+  const services = await getServices();
   return (
     <>
       <PageHeader

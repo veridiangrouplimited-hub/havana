@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { site, navigation } from "@/lib/site";
 import Icon from "@/components/Icon";
 import { FlagMark } from "@/components/FlagStripe";
+import NationalSymbolsModal from "@/components/NationalSymbolsModal";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -42,24 +43,36 @@ export default function Header() {
       {/* Identity band */}
       <div className="border-b border-line bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5">
-          <Link href="/" className="flex min-w-0 items-center gap-3.5">
-            <Image
-              src="/images/mfa-logo.png"
-              alt="Coat of Arms — Ministry of Foreign Affairs, Federal Republic of Nigeria"
-              width={60}
-              height={60}
-              className="h-12 w-12 shrink-0 object-contain md:h-[60px] md:w-[60px]"
-              priority
+          <div className="flex min-w-0 items-center gap-3.5">
+            <NationalSymbolsModal
+              trigger={(openModal) => (
+                <button
+                  type="button"
+                  onClick={openModal}
+                  className="shrink-0 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                  title="Nigeria's national symbols — coat of arms, anthem & motto"
+                  aria-label="Open national symbols: coat of arms, anthem and motto"
+                >
+                  <Image
+                    src="/images/mfa-logo.png"
+                    alt="Coat of Arms — Federal Republic of Nigeria"
+                    width={60}
+                    height={60}
+                    className="h-12 w-12 object-contain md:h-[60px] md:w-[60px]"
+                    priority
+                  />
+                </button>
+              )}
             />
-            <span className="min-w-0 border-l-2 border-gold/60 pl-3.5">
+            <Link href="/" className="min-w-0 border-l-2 border-gold/60 pl-3.5">
               <span className="block truncate font-serif text-lg font-bold leading-tight text-brand md:text-[1.45rem]">
                 {site.missionName}
               </span>
               <span className="mt-0.5 block text-[10px] font-semibold uppercase tracking-[0.18em] text-ink/65 md:text-[11px]">
                 Federal Republic of Nigeria · Ministry of Foreign Affairs
               </span>
-            </span>
-          </Link>
+            </Link>
+          </div>
 
           <div className="flex items-center gap-3">
             <form action="/search" role="search" className="hidden items-center xl:flex">

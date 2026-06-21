@@ -1,0 +1,319 @@
+[
+  {
+    "key": "group_notice_fields",
+    "title": "Notice Fields",
+    "fields": [
+      {
+        "key": "field_notice_priority",
+        "label": "Priority",
+        "name": "priority",
+        "type": "select",
+        "choices": {
+          "Urgent": "Urgent",
+          "Important": "Important",
+          "Advisory": "Advisory",
+          "Service Update": "Service Update",
+          "Holiday Notice": "Holiday Notice"
+        },
+        "default_value": "Advisory",
+        "required": 1
+      },
+      {
+        "key": "field_notice_date",
+        "label": "Date",
+        "name": "notice_date",
+        "type": "date_picker",
+        "display_format": "d/m/Y",
+        "return_format": "Ymd",
+        "required": 1
+      },
+      {
+        "key": "field_notice_body",
+        "label": "Body",
+        "name": "body",
+        "type": "repeater",
+        "min": 1,
+        "instructions": "Add one paragraph per row.",
+        "sub_fields": [
+          {
+            "key": "field_notice_body_text",
+            "label": "Paragraph",
+            "name": "text",
+            "type": "textarea",
+            "rows": 3
+          }
+        ]
+      }
+    ],
+    "location": [
+      [{ "param": "post_type", "operator": "==", "value": "notice" }]
+    ],
+    "active": true
+  },
+  {
+    "key": "group_news_article_fields",
+    "title": "News Article Fields",
+    "fields": [
+      {
+        "key": "field_news_category",
+        "label": "Category",
+        "name": "category",
+        "type": "select",
+        "choices": {
+          "News": "News",
+          "Press Release": "Press Release",
+          "Speech": "Speech",
+          "Official Statement": "Official Statement",
+          "Mission Activity": "Mission Activity"
+        },
+        "required": 1
+      },
+      {
+        "key": "field_news_date",
+        "label": "Date",
+        "name": "news_date",
+        "type": "date_picker",
+        "display_format": "d/m/Y",
+        "return_format": "Ymd",
+        "required": 1
+      },
+      {
+        "key": "field_news_department",
+        "label": "Department / Section",
+        "name": "department",
+        "type": "text",
+        "required": 1
+      },
+      {
+        "key": "field_news_excerpt",
+        "label": "Excerpt (2–3 sentences)",
+        "name": "excerpt",
+        "type": "textarea",
+        "rows": 3,
+        "required": 1
+      },
+      {
+        "key": "field_news_body",
+        "label": "Body",
+        "name": "body",
+        "type": "repeater",
+        "min": 1,
+        "instructions": "Add one paragraph per row.",
+        "sub_fields": [
+          {
+            "key": "field_news_body_text",
+            "label": "Paragraph",
+            "name": "text",
+            "type": "textarea",
+            "rows": 4
+          }
+        ]
+      },
+      {
+        "key": "field_news_image",
+        "label": "Feature Image",
+        "name": "image",
+        "type": "image",
+        "return_format": "array",
+        "required": 1
+      },
+      {
+        "key": "field_news_image_credit",
+        "label": "Image Credit / Caption",
+        "name": "image_credit",
+        "type": "text",
+        "instructions": "e.g. Photo: Mission Photography Unit"
+      }
+    ],
+    "location": [
+      [{ "param": "post_type", "operator": "==", "value": "news_article" }]
+    ],
+    "active": true
+  },
+  {
+    "key": "group_service_fields",
+    "title": "Service Fields",
+    "fields": [
+      {
+        "key": "field_service_icon",
+        "label": "Icon",
+        "name": "icon",
+        "type": "select",
+        "choices": {
+          "visa": "visa (card with photo)",
+          "passport": "passport (booklet)",
+          "plane": "plane (emergency travel)",
+          "seal": "seal (authentication)",
+          "scale": "scale (notarial)",
+          "shield": "shield (consular assistance)"
+        },
+        "required": 1
+      },
+      {
+        "key": "field_service_summary",
+        "label": "Summary (one sentence)",
+        "name": "summary",
+        "type": "textarea",
+        "rows": 2,
+        "required": 1
+      },
+      {
+        "key": "field_service_overview",
+        "label": "Overview",
+        "name": "overview",
+        "type": "repeater",
+        "min": 1,
+        "sub_fields": [
+          { "key": "field_service_overview_text", "label": "Paragraph", "name": "text", "type": "textarea", "rows": 3 }
+        ]
+      },
+      {
+        "key": "field_service_eligibility",
+        "label": "Eligibility",
+        "name": "eligibility",
+        "type": "repeater",
+        "min": 1,
+        "sub_fields": [
+          { "key": "field_service_eligibility_text", "label": "Item", "name": "text", "type": "text" }
+        ]
+      },
+      {
+        "key": "field_service_requirements",
+        "label": "Requirements",
+        "name": "requirements",
+        "type": "repeater",
+        "min": 1,
+        "sub_fields": [
+          { "key": "field_service_requirements_text", "label": "Requirement", "name": "text", "type": "text" }
+        ]
+      },
+      {
+        "key": "field_service_process",
+        "label": "Process Steps",
+        "name": "process",
+        "type": "repeater",
+        "min": 1,
+        "sub_fields": [
+          { "key": "field_service_process_text", "label": "Step", "name": "text", "type": "text" }
+        ]
+      },
+      {
+        "key": "field_service_fees",
+        "label": "Fees",
+        "name": "fees",
+        "type": "repeater",
+        "min": 1,
+        "sub_fields": [
+          { "key": "field_service_fees_item", "label": "Item", "name": "item", "type": "text" },
+          { "key": "field_service_fees_amount", "label": "Amount", "name": "amount", "type": "text" }
+        ]
+      },
+      {
+        "key": "field_service_fees_note",
+        "label": "Fees Note",
+        "name": "fees_note",
+        "type": "textarea",
+        "rows": 2
+      },
+      {
+        "key": "field_service_processing_time",
+        "label": "Processing Time",
+        "name": "processing_time",
+        "type": "repeater",
+        "min": 1,
+        "sub_fields": [
+          { "key": "field_service_processing_time_text", "label": "Item", "name": "text", "type": "text" }
+        ]
+      },
+      {
+        "key": "field_service_faqs",
+        "label": "FAQs",
+        "name": "faqs",
+        "type": "repeater",
+        "sub_fields": [
+          { "key": "field_service_faqs_q", "label": "Question", "name": "q", "type": "text" },
+          { "key": "field_service_faqs_a", "label": "Answer", "name": "a", "type": "textarea", "rows": 3 }
+        ]
+      },
+      {
+        "key": "field_service_forms",
+        "label": "Downloadable Forms",
+        "name": "forms",
+        "type": "repeater",
+        "sub_fields": [
+          { "key": "field_service_forms_label", "label": "Label", "name": "label", "type": "text" },
+          { "key": "field_service_forms_href", "label": "URL", "name": "href", "type": "url" }
+        ]
+      },
+      {
+        "key": "field_service_external_links",
+        "label": "External Links",
+        "name": "external_links",
+        "type": "repeater",
+        "sub_fields": [
+          { "key": "field_service_ext_label", "label": "Label", "name": "label", "type": "text" },
+          { "key": "field_service_ext_href", "label": "URL", "name": "href", "type": "url" }
+        ]
+      }
+    ],
+    "location": [
+      [{ "param": "post_type", "operator": "==", "value": "service" }]
+    ],
+    "active": true
+  },
+  {
+    "key": "group_document_fields",
+    "title": "Document Fields",
+    "fields": [
+      {
+        "key": "field_doc_description",
+        "label": "Description",
+        "name": "description",
+        "type": "textarea",
+        "rows": 2,
+        "required": 1
+      },
+      {
+        "key": "field_doc_category",
+        "label": "Category",
+        "name": "category",
+        "type": "select",
+        "choices": {
+          "visa": "Visa",
+          "passport": "Passport & Travel",
+          "authentication": "Authentication",
+          "general": "General"
+        },
+        "required": 1
+      },
+      {
+        "key": "field_doc_filename",
+        "label": "PDF Filename",
+        "name": "filename",
+        "type": "text",
+        "instructions": "Filename only, e.g. visa-application-form.pdf — file must exist in /public/docs/",
+        "required": 1
+      },
+      {
+        "key": "field_doc_size_kb",
+        "label": "File Size (KB)",
+        "name": "size_kb",
+        "type": "number",
+        "min": 1,
+        "required": 1
+      },
+      {
+        "key": "field_doc_rev",
+        "label": "Revision",
+        "name": "rev",
+        "type": "text",
+        "instructions": "e.g. Jan 2026",
+        "required": 1
+      }
+    ],
+    "location": [
+      [{ "param": "post_type", "operator": "==", "value": "consular_document" }]
+    ],
+    "active": true
+  }
+]

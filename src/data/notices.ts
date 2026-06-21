@@ -1,7 +1,4 @@
-/**
- * Public notices. Maps to a CMS "Notice" collection with a priority
- * label so urgent items can be surfaced on the homepage automatically.
- */
+import { wpQuery, isWpConfigured, parseAcfDate } from "@/lib/wp";
 
 export type NoticePriority =
   | "Urgent"
@@ -26,6 +23,7 @@ export const noticePriorities: NoticePriority[] = [
   "Holiday Notice",
 ];
 
+// Static fallback — used when WORDPRESS_URL is not set or WP is unreachable.
 export const notices: Notice[] = [
   {
     id: "biometric-system-maintenance",
@@ -88,3 +86,51 @@ export const notices: Notice[] = [
     ],
   },
 ];
+
+// ── WordPress ────────────────────────────────────────────────────────────────
+
+type WPNotice = {
+  slug: string;
+  title: string;
+  noticeFields: {
+    priority: NoticePriority;
+    noticeDate: string;
+    body: { text: string }[];
+  };
+};
+
+const NOTICES_QUERY = /* GraphQL */ `
+  query GetNotices {
+    notices(first: 100, where: { status: PUBLISH, orderby: { field: DATE, order: DESC } }) {
+      nodes {
+        slug
+        title
+        noticeFields {
+          priority
+          noticeDate
+          body { text }
+        }
+      }
+    }
+  }
+`;
+
+function mapNotice(wp: WPNotice): Notice {
+  return {
+    id: wp.slug,
+    title: wp.title,
+    priority: wp.noticeFields.priority,
+    date: parseAcfDate(wp.noticeFields.noticeDate),
+    body: wp.noticeFields.body.map((b) => b.text),
+  };
+}
+
+export async function getNotices(): Promise<Notice[]> {
+  if (!isWpConfigured()) return notices;
+  try {
+    const data = await wpQuery<{ notices: { nodes: WPNotice[] } }>(NOTICES_QUERY);
+    return data.notices.nodes.map(mapNotice);
+  } catch {
+    return notices;
+  }
+}

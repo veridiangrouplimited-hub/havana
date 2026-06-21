@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { site } from "@/lib/site";
-import { services } from "@/data/services";
-import { news, formatDate } from "@/data/news";
-import { notices } from "@/data/notices";
+import { getServices } from "@/data/services";
+import { getNews, formatDate } from "@/data/news";
+import { getNotices } from "@/data/notices";
 import Icon, { type IconName } from "@/components/Icon";
 import NoticeBadge from "@/components/NoticeBadge";
 import SectionHeading from "@/components/SectionHeading";
@@ -24,11 +24,6 @@ const nigeriaFacts = [
   { label: "Motto", value: "Unity and Faith, Peace and Progress" },
 ];
 
-const latestNews = [...news].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
-const latestNotices = [...notices].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
-const alertNotice = [...notices]
-  .sort((a, b) => b.date.localeCompare(a.date))
-  .find((n) => n.priority === "Urgent" || n.priority === "Important");
 
 const relationsAreas: { icon: IconName; title: string; text: string }[] = [
   {
@@ -53,7 +48,14 @@ const relationsAreas: { icon: IconName; title: string; text: string }[] = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const [services, news, notices] = await Promise.all([getServices(), getNews(), getNotices()]);
+  const latestNews = [...news].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
+  const latestNotices = [...notices].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
+  const alertNotice = [...notices]
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .find((n) => n.priority === "Urgent" || n.priority === "Important");
+
   return (
     <>
       {/* Hero */}

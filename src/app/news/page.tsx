@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import NewsList from "@/components/NewsList";
-import { news } from "@/data/news";
+import { getNews } from "@/data/news";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -9,7 +9,8 @@ export const metadata: Metadata = {
   description: `News, press releases, speeches, official statements and activities of the ${site.missionName}.`,
 };
 
-export default function NewsPage() {
+export default async function NewsPage() {
+  const news = await getNews();
   return (
     <>
       <PageHeader
