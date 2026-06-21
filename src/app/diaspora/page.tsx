@@ -3,6 +3,7 @@ import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Icon, { type IconName } from "@/components/Icon";
 import NoticeBadge from "@/components/NoticeBadge";
+import TestimonialRotator from "@/components/TestimonialRotator";
 import { site } from "@/lib/site";
 import { notices } from "@/data/notices";
 import { formatDate } from "@/data/news";
@@ -151,6 +152,24 @@ export default function DiasporaPage() {
               </li>
             ))}
           </ul>
+        </section>
+
+        {/* Community voices */}
+        <section aria-labelledby="voices-heading" className="mt-20">
+          <div className="mb-8 grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+            <div>
+              <h2 id="voices-heading" className="font-serif text-2xl font-bold text-brand-deep">
+                Voices from the Community
+              </h2>
+              <div className="mt-3 h-1 w-16 bg-gold" aria-hidden="true" />
+              <p className="mt-5 text-sm leading-relaxed text-ink/80 md:text-base">
+                Hear from Nigerians living in {site.hostCountry} who have interacted with the
+                Mission. Their experiences reflect our commitment to serving every Nigerian with
+                dignity, efficiency and care.
+              </p>
+            </div>
+            <TestimonialRotator />
+          </div>
         </section>
 
         {/* Community notices + links */}
