@@ -25,7 +25,8 @@ export default function PageHeader({
         alt=""
         width={340}
         height={340}
-        className="pointer-events-none absolute -bottom-16 -right-10 hidden h-72 w-72 object-contain opacity-[0.08] md:block"
+        className="pointer-events-none absolute -bottom-16 -right-10 hidden h-72 w-72 object-contain opacity-[0.13] md:block"
+        style={{ filter: "grayscale(1) invert(1) brightness(5) contrast(12)" }}
         aria-hidden="true"
       />
       <div className="relative mx-auto max-w-7xl px-4 py-11 md:py-16">

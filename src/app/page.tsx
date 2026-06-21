@@ -67,7 +67,8 @@ export default function Home() {
           alt=""
           width={520}
           height={520}
-          className="pointer-events-none absolute -bottom-24 -right-16 hidden h-[26rem] w-[26rem] object-contain opacity-[0.07] lg:block"
+          className="pointer-events-none absolute -bottom-24 -right-16 hidden h-[26rem] w-[26rem] object-contain opacity-[0.11] lg:block"
+          style={{ filter: "grayscale(1) invert(1) brightness(5) contrast(12)" }}
           aria-hidden="true"
           priority
         />

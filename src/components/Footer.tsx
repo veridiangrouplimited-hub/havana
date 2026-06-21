@@ -30,7 +30,8 @@ export default function Footer() {
         alt=""
         width={420}
         height={420}
-        className="pointer-events-none absolute -bottom-24 -right-16 hidden h-96 w-96 object-contain opacity-[0.05] lg:block"
+        className="pointer-events-none absolute -bottom-24 -right-16 hidden h-96 w-96 object-contain opacity-[0.1] lg:block"
+        style={{ filter: "grayscale(1) invert(1) brightness(5) contrast(12)" }}
         aria-hidden="true"
       />
       <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
