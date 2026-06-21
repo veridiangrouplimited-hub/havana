@@ -2,12 +2,19 @@ import { NIGERIA_PATH } from "@/components/NigeriaMap";
 import { NigeriaFlagShapes, CubaFlagShapes } from "@/components/Flags";
 
 /**
- * Decorative Atlantic route map connecting Havana and Abuja —
- * simplified silhouettes of Cuba and Nigeria joined by a dashed
- * gold flight arc. Renders on light panels or dark green bands.
+ * Decorative Atlantic route map connecting Havana and Abuja.
+ * Cuba's outline is a web-optimised simplified path; Nigeria's outline
+ * uses the accurate path from NigeriaMap via a nested SVG viewport.
+ * Renders on both light panels and dark green bands.
  */
-const CUBA_PATH =
-  "M2 44 C14 28 40 12 78 8 C108 5 142 12 166 26 L178 36 C170 42 152 44 136 41 C112 37 84 42 62 50 C40 58 16 56 2 44 Z";
+
+/** Simplified but geographically accurate Cuba outline in a 180×70 unit space. */
+const CUBA_MAIN =
+  "M5,31 C9,22 22,13 42,10 C62,7 82,7 100,9 C118,7 138,6 157,10 C167,13 173,19 175,25 L173,31 C163,38 148,42 128,46 C105,50 82,52 60,50 C38,48 20,44 8,38 Z";
+
+/** Isla de la Juventud (Isle of Pines) — Cuba's largest offshore island. */
+const CUBA_ISLE =
+  "M52,61 C56,56 65,55 69,59 C72,63 68,67 63,67 C57,67 50,64 52,61 Z";
 
 export default function RouteMap({
   tone = "light",
@@ -43,89 +50,75 @@ export default function RouteMap({
         <path d="M720 0 Q740 200 700 400" />
       </g>
 
-      {/* Cuba */}
-      <g transform="translate(50 110)">
-        <path d={CUBA_PATH} fill={cubaFill} stroke={landStroke} strokeWidth="1.5" />
-        <circle cx="118" cy="60" r="4.5" fill={cubaFill} stroke={landStroke} strokeWidth="1" />
-        <text
-          x="100"
-          y="92"
-          textAnchor="middle"
-          fill={label}
-          fontSize="17"
-          fontWeight="700"
-          letterSpacing="5"
-        >
+      {/* ── Cuba ── */}
+      <g transform="translate(42 110)" aria-hidden="true">
+        {/* Main island */}
+        <path d={CUBA_MAIN} fill={cubaFill} stroke={landStroke} strokeWidth="1.5" />
+        {/* Isle of Pines */}
+        <path d={CUBA_ISLE} fill={cubaFill} stroke={landStroke} strokeWidth="1.2" />
+        {/* Country label */}
+        <text x="88" y="88" textAnchor="middle" fill={label} fontSize="17" fontWeight="700" letterSpacing="5">
           CUBA
         </text>
-        <svg x="34" y="76" width="40" height="20" viewBox="0 0 60 30">
+        {/* Inline Cuba flag */}
+        <svg x="68" y="72" width="40" height="20" viewBox="0 0 60 30">
           <CubaFlagShapes />
           <rect width="60" height="30" fill="none" stroke={landStroke} strokeWidth="1.5" />
         </svg>
       </g>
 
-      {/* Havana marker */}
-      <circle cx="92" cy="138" r="5.5" fill={gold} />
-      <circle cx="92" cy="138" r="11" fill="none" stroke={gold} strokeWidth="1.5" opacity="0.55" />
-      <text x="92" y="118" textAnchor="middle" fill={label} fontSize="13" fontWeight="700" letterSpacing="2">
+      {/* Havana marker — on Cuba's north coast, western section */}
+      <circle cx="92" cy="140" r="5.5" fill={gold} />
+      <circle cx="92" cy="140" r="11" fill="none" stroke={gold} strokeWidth="1.5" opacity="0.55" />
+      <text x="92" y="120" textAnchor="middle" fill={label} fontSize="13" fontWeight="700" letterSpacing="2">
         HAVANA
       </text>
 
-      {/* Nigeria */}
-      <g transform="translate(640 110) scale(2.1)">
-        <path d={NIGERIA_PATH} fill={nigeriaFill} stroke={landStroke} strokeWidth="0.8" />
-      </g>
-      <text
-        x="762"
-        y="360"
-        textAnchor="middle"
-        fill={label}
-        fontSize="17"
-        fontWeight="700"
-        letterSpacing="5"
+      {/* ── Nigeria — nested SVG so the accurate NIGERIA_PATH renders at correct scale ── */}
+      <svg
+        x="630"
+        y="108"
+        width="228"
+        height="172"
+        viewBox="0 0 954 734"
+        aria-hidden="true"
+        overflow="visible"
       >
+        <path d={NIGERIA_PATH} fill={nigeriaFill} stroke={landStroke} strokeWidth="3" />
+      </svg>
+      {/* Nigeria label — below the silhouette */}
+      <text x="744" y="298" textAnchor="middle" fill={label} fontSize="17" fontWeight="700" letterSpacing="5">
         NIGERIA
       </text>
-      <svg x="688" y="344" width="40" height="20" viewBox="0 0 60 30">
+      {/* Inline Nigeria flag */}
+      <svg x="724" y="302" width="40" height="20" viewBox="0 0 60 30">
         <NigeriaFlagShapes />
         <rect width="60" height="30" fill="none" stroke={landStroke} strokeWidth="1.5" />
       </svg>
 
-      {/* Abuja marker (40,50 in map space, scaled) */}
-      <circle cx="724" cy="215" r="5.5" fill={gold} />
-      <circle cx="724" cy="215" r="11" fill="none" stroke={gold} strokeWidth="1.5" opacity="0.55" />
-      <text x="724" y="195" textAnchor="middle" fill={label} fontSize="13" fontWeight="700" letterSpacing="2">
+      {/* Abuja marker — approx centre-left of Nigeria silhouette */}
+      <circle cx="748" cy="210" r="5.5" fill={gold} />
+      <circle cx="748" cy="210" r="11" fill="none" stroke={gold} strokeWidth="1.5" opacity="0.55" />
+      <text x="748" y="192" textAnchor="middle" fill={label} fontSize="13" fontWeight="700" letterSpacing="2">
         ABUJA
       </text>
 
       {/* Flight arc */}
       <path
-        d="M92 138 Q400 28 724 215"
+        d="M92 140 Q400 28 748 210"
         fill="none"
         stroke={gold}
         strokeWidth="2.5"
         strokeDasharray="3 9"
         strokeLinecap="round"
       />
-      {/* Plane at the arc midpoint, angled along the path */}
-      <path
-        d="M390 96 l26 8 -26 8 6 -8 z"
-        fill={gold}
-        transform="rotate(9 400 104)"
-      />
+      {/* Plane at arc midpoint */}
+      <path d="M390 96 l26 8 -26 8 6 -8 z" fill={gold} transform="rotate(9 400 104)" />
       <text x="404" y="76" textAnchor="middle" fill={faint} fontSize="12" fontWeight="600" letterSpacing="2">
         ≈ 9,600 KM
       </text>
 
-      <text
-        x="430"
-        y="345"
-        textAnchor="middle"
-        fill={faint}
-        fontSize="13"
-        fontStyle="italic"
-        letterSpacing="8"
-      >
+      <text x="430" y="345" textAnchor="middle" fill={faint} fontSize="13" fontStyle="italic" letterSpacing="8">
         ATLANTIC OCEAN
       </text>
     </svg>

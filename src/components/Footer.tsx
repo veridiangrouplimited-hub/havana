@@ -36,13 +36,15 @@ export default function Footer() {
       <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="mb-4 flex items-center gap-3">
-            <Image
-              src="/images/mfa-logo.png"
-              alt=""
-              width={52}
-              height={52}
-              className="h-13 w-13 object-contain"
-            />
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 p-1.5 ring-1 ring-gold/30">
+              <Image
+                src="/images/mfa-logo.png"
+                alt=""
+                width={36}
+                height={36}
+                className="h-full w-full object-contain"
+              />
+            </div>
             <div className="border-l-2 border-gold/60 pl-3">
               <p className="font-serif text-base font-bold leading-snug">{site.missionName}</p>
               <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/65">
