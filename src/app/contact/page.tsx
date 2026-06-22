@@ -133,6 +133,30 @@ export default function ContactPage() {
                 ))}
               </ul>
             </section>
+
+            <section aria-labelledby="social-heading" className="rounded border border-line bg-white p-5">
+              <h2 id="social-heading" className="mb-1 font-serif text-xl font-bold text-brand-deep">
+                Follow the Mission
+              </h2>
+              <p className="mb-4 text-sm text-ink/70">
+                Stay up to date with news, events and announcements from the Embassy.
+              </p>
+              <ul className="flex flex-wrap gap-3">
+                {site.social.map((s) => (
+                  <li key={s.label}>
+                    <a
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded border border-line bg-surface px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-brand hover:bg-brand hover:text-white"
+                    >
+                      <Icon name={s.icon as "facebook" | "x" | "instagram"} className="h-4 w-4" />
+                      {s.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
           </div>
 
           {/* Enquiry form */}
