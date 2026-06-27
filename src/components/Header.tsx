@@ -5,16 +5,21 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { site, navigation } from "@/lib/site";
+import type { IconName } from "@/components/Icon";
 import Icon from "@/components/Icon";
 import { FlagMark } from "@/components/FlagStripe";
 import NationalSymbolsModal from "@/components/NationalSymbolsModal";
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [openSection, setOpenSection] = useState<string | null>(null);
   const pathname = usePathname();
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
+
+  const toggleSection = (label: string) =>
+    setOpenSection((prev) => (prev === label ? null : label));
 
   return (
     <header className="sticky top-0 z-50 shadow-md">
@@ -69,7 +74,7 @@ export default function Header() {
                 {site.missionName}
               </span>
               <span className="mt-0.5 block text-[10px] font-semibold uppercase tracking-[0.18em] text-ink/65 md:text-[11px]">
-                Federal Republic of Nigeria · Ministry of Foreign Affairs
+                Federal Republic of Nigeria
               </span>
             </Link>
           </div>
@@ -103,19 +108,19 @@ export default function Header() {
             </Link>
             <button
               type="button"
-              onClick={() => setOpen(!open)}
-              aria-expanded={open}
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-expanded={mobileOpen}
               aria-controls="mobile-menu"
               className="rounded border border-line p-2 text-brand lg:hidden"
             >
-              <Icon name={open ? "close" : "menu"} className="h-6 w-6" />
-              <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
+              <Icon name={mobileOpen ? "close" : "menu"} className="h-6 w-6" />
+              <span className="sr-only">{mobileOpen ? "Close menu" : "Open menu"}</span>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Primary navigation */}
+      {/* ── Desktop primary navigation ─────────────────────────────────── */}
       <nav aria-label="Primary" className="border-t border-white/10 bg-brand">
         <div className="mx-auto max-w-7xl px-4">
           <ul className="hidden lg:flex">
@@ -129,34 +134,83 @@ export default function Header() {
                   aria-current={isActive(item.href) ? "page" : undefined}
                 >
                   {item.label}
-                  {item.children && <Icon name="chevron" className="h-3.5 w-3.5 opacity-80" />}
+                  {item.children && (
+                    <Icon
+                      name="chevron"
+                      className="h-3.5 w-3.5 opacity-70 transition-transform duration-200 group-hover:rotate-180"
+                    />
+                  )}
                 </Link>
+
+                {/* ── Desktop dropdown ───────────────────────────────── */}
                 {item.children && (
-                  <ul className="invisible absolute left-0 top-full z-50 min-w-66 rounded-b border-t-[3px] border-gold bg-white py-2 opacity-0 shadow-xl ring-1 ring-black/5 transition-opacity duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                    {item.children.map((child) => (
-                      <li key={child.href}>
-                        <Link
-                          href={child.href}
-                          className="block border-l-2 border-transparent px-4 py-2.5 text-sm text-ink hover:border-gold hover:bg-mist hover:text-brand"
-                        >
-                          {child.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                  <div
+                    className={`invisible absolute left-0 top-full z-50 origin-top opacity-0 shadow-2xl ring-1 ring-black/10
+                      transition-all duration-200 ease-out
+                      group-hover:visible group-hover:opacity-100 group-hover:[transform:translateY(0)]
+                      group-focus-within:visible group-focus-within:opacity-100 group-focus-within:[transform:translateY(0)]
+                      [transform:translateY(-6px)]
+                      ${item.children.length > 5 ? "w-[520px]" : "w-80"}`}
+                  >
+                    {/* Gold accent bar */}
+                    <div className="h-[3px] w-full bg-gradient-to-r from-gold via-gold/80 to-gold/30" />
+                    <div className="rounded-b-xl bg-white">
+                      {/* Section label */}
+                      <div className="border-b border-line px-5 py-3">
+                        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand/60">
+                          {item.label}
+                        </p>
+                      </div>
+                      {/* Items — 2-col grid when > 5 children */}
+                      <ul
+                        className={`p-2 ${item.children.length > 5 ? "grid grid-cols-2 gap-px" : ""}`}
+                      >
+                        {item.children.map((child) => (
+                          <li key={child.href}>
+                            <Link
+                              href={child.href}
+                              className="group/item flex items-start gap-3 rounded-lg px-3 py-2.5 transition-colors hover:bg-brand/5"
+                            >
+                              {child.icon && (
+                                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-brand/8 text-brand transition-colors group-hover/item:bg-brand group-hover/item:text-white">
+                                  <Icon name={child.icon as IconName} className="h-4 w-4" />
+                                </span>
+                              )}
+                              <span className="min-w-0">
+                                <span className="block text-sm font-semibold leading-snug text-ink group-hover/item:text-brand">
+                                  {child.label}
+                                </span>
+                                {child.desc && (
+                                  <span className="mt-0.5 block text-[11px] leading-snug text-ink/55">
+                                    {child.desc}
+                                  </span>
+                                )}
+                              </span>
+                              <Icon
+                                name="arrow"
+                                className="ml-auto mt-1 h-3.5 w-3.5 shrink-0 text-brand/30 opacity-0 transition-opacity group-hover/item:opacity-100"
+                              />
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 )}
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Mobile menu */}
-        {open && (
-          <div id="mobile-menu" className="max-h-[70vh] overflow-y-auto border-t border-brand-deep bg-brand lg:hidden">
+        {/* ── Mobile menu ────────────────────────────────────────────────── */}
+        {mobileOpen && (
+          <div
+            id="mobile-menu"
+            className="max-h-[75vh] overflow-y-auto border-t border-brand-deep bg-brand lg:hidden"
+          >
+            {/* Mobile search */}
             <form action="/search" role="search" className="flex items-center gap-2 px-4 pt-4">
-              <label htmlFor="mobile-search" className="sr-only">
-                Search this website
-              </label>
+              <label htmlFor="mobile-search" className="sr-only">Search this website</label>
               <input
                 id="mobile-search"
                 name="q"
@@ -168,33 +222,74 @@ export default function Header() {
                 <Icon name="search" className="h-5 w-5" />
               </button>
             </form>
+
+            {/* Mobile nav items */}
             <ul className="px-2 py-3">
-              {navigation.map((item) => (
-                <li key={item.href} className="border-b border-brand-deep/60 last:border-0">
-                  <Link
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className="block px-3 py-3 font-semibold text-white"
-                  >
-                    {item.label}
-                  </Link>
-                  {item.children && (
-                    <ul className="pb-2">
-                      {item.children.map((child) => (
-                        <li key={child.href}>
-                          <Link
-                            href={child.href}
-                            onClick={() => setOpen(false)}
-                            className="block px-6 py-2 text-sm text-white/85 hover:text-white"
-                          >
-                            {child.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              ))}
+              {navigation.map((item) => {
+                const expanded = openSection === item.label;
+                return (
+                  <li key={item.href} className="border-b border-brand-deep/60 last:border-0">
+                    {item.children ? (
+                      <>
+                        {/* Accordion trigger */}
+                        <button
+                          type="button"
+                          onClick={() => toggleSection(item.label)}
+                          aria-expanded={expanded}
+                          className="flex w-full items-center justify-between px-3 py-3 font-semibold text-white"
+                        >
+                          {item.label}
+                          <Icon
+                            name="chevron"
+                            className={`h-4 w-4 shrink-0 opacity-70 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
+                          />
+                        </button>
+
+                        {/* Accordion children */}
+                        {expanded && (
+                          <ul className="mb-2 space-y-0.5 px-1">
+                            {item.children.map((child) => (
+                              <li key={child.href}>
+                                <Link
+                                  href={child.href}
+                                  onClick={() => setMobileOpen(false)}
+                                  className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-white/85 transition-colors hover:bg-brand-deep hover:text-white"
+                                >
+                                  {child.icon && (
+                                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-white/10">
+                                      <Icon name={child.icon as IconName} className="h-3.5 w-3.5" />
+                                    </span>
+                                  )}
+                                  <span className="min-w-0">
+                                    <span className="block text-sm font-medium leading-snug">
+                                      {child.label}
+                                    </span>
+                                    {child.desc && (
+                                      <span className="block text-[11px] text-white/50">
+                                        {child.desc}
+                                      </span>
+                                    )}
+                                  </span>
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        className={`block px-3 py-3 font-semibold text-white transition-colors hover:bg-brand-deep ${
+                          isActive(item.href) ? "text-gold" : ""
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         )}

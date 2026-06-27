@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 };
 
 const departmentContacts = [
-  { name: "Consular Section (visas, passports, documents)", email: "consular.havana@foreignaffairs.gov.ng" },
-  { name: "Trade & Investment Section", email: "trade.havana@foreignaffairs.gov.ng" },
-  { name: "Information & Press", email: "press.havana@foreignaffairs.gov.ng" },
-  { name: "Education & Scholarships", email: "education.havana@foreignaffairs.gov.ng" },
+  { name: "Consular Section (visas, passports, documents)", email: "consular.tokyo@foreignaffairs.gov.ng" },
+  { name: "Trade & Investment Section", email: "trade.tokyo@foreignaffairs.gov.ng" },
+  { name: "Information & Press", email: "press.tokyo@foreignaffairs.gov.ng" },
+  { name: "Education & Scholarships", email: "education.tokyo@foreignaffairs.gov.ng" },
 ];
 
 export default function ContactPage() {
@@ -43,14 +43,14 @@ export default function ContactPage() {
               <div className="mt-4 overflow-hidden rounded border border-line">
                 <iframe
                   title={`Map showing the location of the Embassy at ${site.address}, ${site.city}`}
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=-82.445%2C23.105%2C-82.395%2C23.135&layer=mapnik&marker=23.1185%2C-82.4203"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=139.70%2C35.62%2C139.74%2C35.65&layer=mapnik&marker=35.6340%2C139.7233"
                   className="h-64 w-full border-0"
                   loading="lazy"
                 />
               </div>
               <p className="mt-2 text-xs">
                 <a
-                  href="https://www.openstreetmap.org/?mlat=23.1185&mlon=-82.4203#map=15/23.1185/-82.4203"
+                  href="https://www.openstreetmap.org/?mlat=35.6340&mlon=139.7233#map=15/35.6340/139.7233"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-semibold text-brand underline"

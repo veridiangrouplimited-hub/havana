@@ -11,7 +11,7 @@ import FlagStripe from "@/components/FlagStripe";
 import SectionDivider from "@/components/SectionDivider";
 import NigeriaMap from "@/components/NigeriaMap";
 import RouteMap from "@/components/RouteMap";
-import { NigeriaFlag, CubaFlag } from "@/components/Flags";
+import { NigeriaFlag, JapanFlag } from "@/components/Flags";
 import NewsCarousel from "@/components/NewsCarousel";
 import WatermarkSeal from "@/components/WatermarkSeal";
 
@@ -39,7 +39,7 @@ const relationsAreas: { icon: IconName; title: string; text: string }[] = [
   {
     icon: "users",
     title: "Cultural Exchange",
-    text: "Programmes celebrating the deep cultural bonds between Nigeria and Cuba.",
+    text: "Programmes celebrating the deep cultural bonds between Nigeria and Japan.",
   },
   {
     icon: "document",
@@ -70,21 +70,21 @@ export default async function Home() {
           <div>
             <p className="mb-4 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.26em] text-gold">
               <span className="inline-block h-px w-10 bg-gold" aria-hidden="true" />
-              Federal Republic of Nigeria · Ministry of Foreign Affairs
+              Federal Republic of Nigeria
             </p>
             <h1
               id="hero-heading"
               className="font-serif text-4xl font-bold leading-[1.08] md:text-[3.6rem]"
             >
               Embassy of Nigeria
-              <span className="block text-gold">in Havana</span>
+              <span className="block text-gold">in Tokyo</span>
             </h1>
             <div className="mt-6 flex gap-1" aria-hidden="true">
               <span className="h-1 w-16 bg-gold" />
               <span className="h-1 w-5 bg-white/40" />
             </div>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/90 md:text-lg">
-              Serving Nigerian citizens in Cuba and deepening the historic friendship between our
+              Serving Nigerian citizens in Japan and deepening the historic friendship between our
               two nations — with consular services delivered with dignity, efficiency and care.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
@@ -239,7 +239,7 @@ export default async function Home() {
               <p>
                 “On behalf of the Government and people of the Federal Republic of Nigeria, I
                 welcome you to the official website of the {site.missionName}. This Embassy exists
-                to serve — to protect the interests of Nigerians in Cuba, and to deepen the
+                to serve — to protect the interests of Nigerians in Japan, and to deepen the
                 historic friendship and partnership between our two countries.
               </p>
               <p>
@@ -312,22 +312,20 @@ export default async function Home() {
         <div className="pattern-diagonal absolute inset-0" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-4 py-16 md:py-20">
           <SectionHeading
-            eyebrow="Nigeria & Cuba"
+            eyebrow="Nigeria & Japan"
             title="A Historic Partnership"
             id="relations-heading"
             icon="globe"
-            lead="Nigeria and Cuba share warm, longstanding relations built on solidarity, mutual respect and growing cooperation in trade, health, education and culture."
+            lead="Nigeria and Japan share warm, longstanding relations built on mutual respect and growing cooperation in trade, technology, education and culture."
             link={{ label: "Explore bilateral relations", href: "/relations" }}
             tone="dark"
           />
           <div className="-mt-2 mb-9 flex flex-wrap items-center gap-3.5">
             <NigeriaFlag className="h-7 w-[52px] rounded-sm shadow-md ring-1 ring-white/30" />
-            <span className="text-gold" aria-hidden="true">
-              ◆
-            </span>
-            <CubaFlag className="h-7 w-[52px] rounded-sm shadow-md ring-1 ring-white/30" />
+            <span className="text-gold/70 text-lg" aria-hidden="true">&#8212;</span>
+            <JapanFlag className="h-7 w-[52px] rounded-sm shadow-md ring-1 ring-white/30" />
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/75">
-              Federal Republic of Nigeria · Republic of Cuba
+              Federal Republic of Nigeria &middot; Japan
             </p>
           </div>
           <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -343,7 +341,7 @@ export default async function Home() {
             ))}
           </ul>
           <div className="mt-14 hidden md:block">
-            <RouteMap tone="dark" className="mx-auto w-full max-w-4xl" />
+            <RouteMap tone="dark" className="w-full max-w-4xl mx-auto" />
           </div>
         </div>
       </section>
@@ -354,7 +352,7 @@ export default async function Home() {
           <div className="max-w-2xl">
             <SectionHeading
               eyebrow="Our community"
-              title="Nigerians in Cuba"
+              title="Nigerians in Japan"
               id="diaspora-heading"
               lead="Register with the Embassy so we can reach you in an emergency, stay informed through community notices, and take part in diaspora engagement programmes."
             />
@@ -472,7 +470,7 @@ export default async function Home() {
               In an Emergency
             </h3>
             <p className="text-sm leading-relaxed">
-              If a Nigerian citizen in Cuba is in danger, detained, hospitalised or bereaved, call
+              If a Nigerian citizen in Japan is in danger, detained, hospitalised or bereaved, call
               the Embassy's 24-hour emergency line:
             </p>
             <a
@@ -552,3 +550,4 @@ export default async function Home() {
     </>
   );
 }
+

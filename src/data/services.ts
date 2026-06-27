@@ -1,4 +1,4 @@
-import { wpQuery, isWpConfigured } from "@/lib/wp";
+﻿import { wpQuery, isWpConfigured } from "@/lib/wp";
 
 export interface ServiceFaq {
   q: string;
@@ -36,12 +36,12 @@ export const services: Service[] = [
     summary:
       "Entry visas for foreign nationals travelling to Nigeria for business, tourism, official duty or temporary work.",
     overview: [
-      "The Mission processes Nigerian entry visas for citizens and residents of Cuba. All visa applications begin online through the Nigeria Immigration Service portal, after which supporting documents are submitted to the Mission.",
+      "The Mission processes Nigerian entry visas for citizens and residents of Japan. All visa applications begin online through the Nigeria Immigration Service portal, after which supporting documents are submitted to the Mission.",
       "Applicants are advised to apply well in advance of their intended travel date and to ensure that all information supplied matches their travel documents exactly.",
     ],
     eligibility: [
-      "Citizens of Cuba holding a passport valid for at least six months.",
-      "Foreign nationals legally resident in Cuba (proof of residence required).",
+      "Citizens of Japan holding a passport valid for at least six months.",
+      "Foreign nationals legally resident in Japan (proof of residence required).",
       "Holders of passports from countries covered by this Mission's consular jurisdiction.",
     ],
     requirements: [
@@ -105,13 +105,13 @@ export const services: Service[] = [
     title: "Passport Services",
     icon: "passport",
     summary:
-      "Fresh applications, renewals and reissues of the Nigerian e-passport for citizens in Cuba.",
+      "Fresh applications, renewals and reissues of the Nigerian e-passport for citizens in Japan.",
     overview: [
       "The Mission processes applications for the Nigerian enhanced e-passport on behalf of the Nigeria Immigration Service. All applications begin online, followed by an in-person appointment for biometric capture.",
       "Passports are produced centrally; applicants should not plan travel around an expected collection date until the Mission confirms the passport is ready.",
     ],
     eligibility: [
-      "Nigerian citizens resident in or visiting Cuba.",
+      "Nigerian citizens resident in or visiting Japan.",
       "Children of Nigerian parents (both parents' consent required for minors).",
       "Applicants whose passports are lost, damaged, expired or fully stamped.",
     ],
@@ -119,7 +119,7 @@ export const services: Service[] = [
       "Completed online application on the NIS e-passport portal with payment receipt.",
       "Current or expired Nigerian passport (data page copy for renewals).",
       "National Identification Number (NIN).",
-      "Proof of residence in Cuba, where applicable.",
+      "Proof of residence in Japan, where applicable.",
       "For first-time adult applicants: birth certificate and evidence of Nigerian citizenship.",
       "For minors: birth certificate, parents' data pages and a signed letter of consent from both parents.",
       "For lost passports: police report and a sworn affidavit.",
@@ -175,7 +175,7 @@ export const services: Service[] = [
       "The ETC is valid for a single journey to Nigeria only. It is not a substitute for a passport and cannot be used to travel to any other destination.",
     ],
     eligibility: [
-      "Nigerian citizens in Cuba whose passport is lost, stolen, damaged or expired.",
+      "Nigerian citizens in Japan whose passport is lost, stolen, damaged or expired.",
       "Nigerians being repatriated or deported, in coordination with host-country authorities.",
       "Applicants able to establish Nigerian citizenship to the satisfaction of the Mission.",
     ],
@@ -200,7 +200,7 @@ export const services: Service[] = [
     ],
     faqs: [
       {
-        q: "Can I use the ETC to return to Cuba?",
+        q: "Can I use the ETC to return to Japan?",
         a: "No. The ETC is valid for one journey to Nigeria only. You will need a new passport — and any required host-country visa — before travelling again.",
       },
       {
@@ -218,14 +218,14 @@ export const services: Service[] = [
     title: "Document Authentication",
     icon: "seal",
     summary:
-      "Legalisation and authentication of Nigerian documents for use in Cuba, and host-country documents for use in Nigeria.",
+      "Legalisation and authentication of Nigerian documents for use in Japan, and host-country documents for use in Nigeria.",
     overview: [
-      "The Mission authenticates official documents so they can be recognised by authorities in Nigeria or in Cuba. Typical documents include birth, marriage and academic certificates, police character certificates, powers of attorney and commercial documents.",
+      "The Mission authenticates official documents so they can be recognised by authorities in Nigeria or in Japan. Typical documents include birth, marriage and academic certificates, police character certificates, powers of attorney and commercial documents.",
       "Documents originating from Nigeria must first be legalised by the Ministry of Foreign Affairs in Abuja before the Mission can authenticate them.",
     ],
     eligibility: [
-      "Holders of Nigerian public documents intended for official use in Cuba.",
-      "Holders of Cuba documents intended for official use in Nigeria, after legalisation by the host-country foreign ministry.",
+      "Holders of Nigerian public documents intended for official use in Japan.",
+      "Holders of Japan documents intended for official use in Nigeria, after legalisation by the host-country foreign ministry.",
       "Companies requiring authentication of commercial and trade documents.",
     ],
     requirements: [
@@ -269,11 +269,11 @@ export const services: Service[] = [
     summary:
       "Attestation of affidavits, declarations, powers of attorney and certified true copies for Nigerian citizens.",
     overview: [
-      "Consular officers perform limited notarial functions for Nigerian citizens in Cuba, including witnessing signatures, administering oaths and certifying copies of Nigerian documents.",
+      "Consular officers perform limited notarial functions for Nigerian citizens in Japan, including witnessing signatures, administering oaths and certifying copies of Nigerian documents.",
       "Documents must be signed in the presence of the consular officer. Do not sign documents in advance.",
     ],
     eligibility: [
-      "Nigerian citizens resident in or visiting Cuba.",
+      "Nigerian citizens resident in or visiting Japan.",
       "In limited cases, foreign nationals where the document is for use in Nigeria.",
     ],
     requirements: [
@@ -315,12 +315,12 @@ export const services: Service[] = [
     summary:
       "Support for Nigerians in distress — arrest, hospitalisation, bereavement, destitution and crisis situations.",
     overview: [
-      "The Mission provides consular protection and welfare assistance to Nigerian citizens in Cuba. Officers can visit detained citizens, liaise with local authorities, help contact family in Nigeria and provide guidance in emergencies.",
-      "The Mission cannot interfere in the judicial processes of Cuba, pay legal or medical bills, or secure preferential treatment — but it will work to ensure that Nigerians are treated fairly and with dignity.",
+      "The Mission provides consular protection and welfare assistance to Nigerian citizens in Japan. Officers can visit detained citizens, liaise with local authorities, help contact family in Nigeria and provide guidance in emergencies.",
+      "The Mission cannot interfere in the judicial processes of Japan, pay legal or medical bills, or secure preferential treatment — but it will work to ensure that Nigerians are treated fairly and with dignity.",
     ],
     eligibility: [
-      "All Nigerian citizens in Cuba, whether resident or visiting.",
-      "Family members in Nigeria seeking welfare confirmation of a relative in Cuba.",
+      "All Nigerian citizens in Japan, whether resident or visiting.",
+      "Family members in Nigeria seeking welfare confirmation of a relative in Japan.",
     ],
     requirements: [
       "Any available identification of the affected citizen.",
@@ -343,7 +343,7 @@ export const services: Service[] = [
         a: "With the citizen's consent, consular officers can visit them in detention, monitor their welfare and treatment, provide a list of local lawyers and keep family informed. The Mission cannot secure release from lawful custody.",
       },
       {
-        q: "A Nigerian has died in Cuba. Who do we contact?",
+        q: "A Nigerian has died in Japan. Who do we contact?",
         a: "Contact the consular section immediately. The Mission will guide the family through documentation for local burial or repatriation of remains, and liaise with host-country authorities.",
       },
       {
@@ -441,3 +441,4 @@ export async function getService(slug: string): Promise<Service | undefined> {
   const all = await getServices();
   return all.find((s) => s.slug === slug);
 }
+

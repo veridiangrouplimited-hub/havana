@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Icon, { type IconName } from "@/components/Icon";
+import { NigeriaFlag, JapanFlag } from "@/components/Flags";
 import RouteMap from "@/components/RouteMap";
-import { NigeriaFlag, CubaFlag } from "@/components/Flags";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -12,61 +12,66 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "1974", label: "Diplomatic relations established" },
-  { value: "US$85m", label: "Annual two-way trade volume" },
-  { value: "12", label: "Bilateral agreements in force" },
-  { value: "300+", label: "Nigerian students and professionals" },
+  { value: "1960", label: "Diplomatic relations established" },
+  { value: "US$4.5bn", label: "Annual two-way trade volume" },
+  { value: "18", label: "Bilateral agreements in force" },
+  { value: "1,200+", label: "Nigerian students and professionals" },
 ];
 
-const areas: { icon: IconName; title: string; paras: string[] }[] = [
+const areas: { icon: IconName; tag: string; title: string; paras: string[] }[] = [
   {
     icon: "globe",
+    tag: "01 · Diplomacy",
     title: "Political Relations",
     paras: [
-      `Nigeria and ${site.hostCountry} maintain warm political relations characterised by regular high-level visits, diplomatic consultations and cooperation in the United Nations and other international organisations.`,
-      "Both countries share commitments to multilateralism, peace and security, and South–South cooperation, and consult regularly within the United Nations, the G77 and other multilateral forums. The bilateral joint commission, last convened in 2024, coordinates cooperation across all sectors.",
+      `Nigeria and ${site.hostCountry} maintain strong and cordial political relations characterised by regular high-level visits, diplomatic consultations and cooperation in the United Nations and other international organisations.`,
+      "Both countries share commitments to multilateralism, peace and security, and engage in structured dialogue through a bilateral joint commission that coordinates cooperation across all sectors. The two nations are aligned on key global issues including climate change, disarmament and sustainable development.",
     ],
   },
   {
     icon: "scale",
+    tag: "02 · Economics",
     title: "Economic Relations & Trade",
     paras: [
-      `Economic ties between Nigeria and ${site.hostCountry} continue to grow, spanning energy, agriculture, manufacturing, technology and services. The Mission's Trade and Investment Section supports businesses on both sides with market information and facilitation.`,
-      "Nigeria — Africa's largest economy and most populous nation — offers investors access to a dynamic market of over 200 million people and preferential access to the African Continental Free Trade Area (AfCFTA).",
+      `Economic ties between Nigeria and ${site.hostCountry} continue to grow, spanning automotive manufacturing, electronics, energy, agriculture and financial services. The Mission's Trade and Investment Section supports businesses on both sides with market intelligence and facilitation.`,
+      "Nigeria — Africa's largest economy — offers investors access to a dynamic market of over 220 million people and preferential access to the African Continental Free Trade Area (AfCFTA).",
     ],
   },
   {
     icon: "document",
+    tag: "03 · Investment",
     title: "Trade & Investment Opportunities",
     paras: [
-      "Priority sectors for investment include agriculture and agro-processing, oil and gas, solid minerals, renewable energy, digital technology, infrastructure and the creative economy.",
-      "The Nigerian Investment Promotion Commission (NIPC) provides incentives and protections for foreign investors, including guarantees against expropriation and free repatriation of profits.",
+      `${site.hostCountry}ese investment in Nigeria spans automotive assembly, electronics manufacturing, infrastructure, digital technology and agro-processing. The Nigerian Investment Promotion Commission (NIPC) provides incentives and protections for foreign investors.`,
+      "Priority sectors for new investment include renewable energy, solid minerals, the digital economy, food processing and creative industries. The Mission can connect investors with the NIPC and relevant Nigerian agencies.",
     ],
   },
   {
     icon: "users",
+    tag: "04 · Culture",
     title: "Cultural Relations",
     paras: [
       `The Mission promotes Nigeria's rich cultural heritage in ${site.hostCountry} — from Nollywood and Afrobeats to literature, visual arts and cuisine — through festivals, exhibitions and partnerships with cultural institutions.`,
-      "Cultural exchange programmes strengthen people-to-people ties and mutual understanding between our societies.",
+      `Cultural exchange programmes strengthen people-to-people ties and mutual understanding. The Nigerian community in ${site.hostCountry} serves as a living bridge between our two societies.`,
     ],
   },
   {
     icon: "passport",
+    tag: "05 · Education",
     title: "Educational Cooperation",
     paras: [
-      `Academic cooperation includes scholarships, university partnerships, research collaboration and exchange programmes. The Mission supports Nigerian students in ${site.hostCountry} and promotes ${site.hostCountry}–Nigeria institutional linkages.`,
-      "Flagship programmes include the Nigeria–Cuba medical scholarship scheme, under which Nigerian students train at Cuban universities, alongside growing research partnerships in tropical medicine and agriculture.",
+      `Academic cooperation includes scholarships, university partnerships, research collaboration and exchange programmes. The Mission supports Nigerian students in ${site.hostCountry} and promotes bilateral institutional linkages.`,
+      `Flagship programmes include JICA-supported technical training placements for Nigerian professionals, growing research partnerships in engineering, robotics and medicine, and university twinning arrangements between leading institutions in both countries.`,
     ],
   },
 ];
 
 const agreements = [
-  "Trade and Economic Cooperation Agreement — 1979",
-  "Bilateral Air Services Agreement — 1996",
-  "Agreement on Educational and Cultural Exchange — 2008",
-  "Memorandum of Understanding on Political Consultations — 2015",
-  "Agreement on Health and Medical Cooperation — 2019",
+  "Technical Cooperation Agreement — 1964",
+  "Agreement on Investment Promotion and Protection — 2005",
+  "Cultural and Educational Exchange Agreement — 2012",
+  "Science and Technology Cooperation MOU — 2018",
+  "Digital Economy and Innovation Partnership — 2023",
 ];
 
 export default function RelationsPage() {
@@ -78,6 +83,7 @@ export default function RelationsPage() {
         crumbs={[{ label: "Bilateral Relations" }]}
       />
 
+      {/* Stats bar */}
       <div className="bg-brand-dark text-white">
         <dl className="mx-auto grid max-w-7xl gap-px overflow-hidden px-4 py-8 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s) => (
@@ -90,72 +96,103 @@ export default function RelationsPage() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 py-16">
-        {/* Havana ↔ Abuja route map */}
-        <section aria-labelledby="route-heading" className="mb-16 overflow-hidden rounded border border-line bg-white shadow-sm">
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-line bg-mist/60 px-6 py-5">
+        {/* Route map */}
+        <section aria-labelledby="route-heading" className="mb-16 overflow-hidden rounded-2xl border border-line bg-white shadow-sm">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-line bg-surface/60 px-6 py-5">
             <div>
               <p className="mb-1 flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.24em] text-brand-deep">
                 <span className="inline-block h-px w-9 bg-gold" aria-hidden="true" />
-                Havana ↔ Abuja
+                Tokyo ↔ Abuja
               </p>
               <h2 id="route-heading" className="font-serif text-xl font-bold text-brand-deep md:text-2xl">
-                Two Nations, One Atlantic
+                Two Nations, One World
               </h2>
             </div>
             <div className="flex items-center gap-3">
-              <CubaFlag className="h-7 w-[52px] rounded-sm shadow-sm" />
-              <span className="text-gold" aria-hidden="true">
-                ◆
-              </span>
+              <JapanFlag className="h-7 w-[52px] rounded-sm shadow-sm" />
+              <span className="text-gold/70 text-lg" aria-hidden="true">&#8212;</span>
               <NigeriaFlag className="h-7 w-[52px] rounded-sm shadow-sm" />
             </div>
           </div>
           <div className="px-4 py-6 md:px-8">
-            <RouteMap tone="light" className="mx-auto w-full max-w-4xl" />
+            <RouteMap tone="light" className="w-full" />
           </div>
-          <p className="border-t border-line bg-mist/60 px-6 py-3 text-xs text-ink/60">
+          <p className="border-t border-line bg-surface/60 px-6 py-3 text-xs text-ink/60">
             Stylised illustration — distances and coastlines are simplified.
           </p>
         </section>
 
-        <div className="space-y-16">
-          {areas.map((a) => (
-            <section key={a.title} aria-labelledby={a.title.replace(/\s+/g, "-").toLowerCase()}>
-              <div className="mb-4 flex items-center gap-3">
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded bg-brand/10 text-brand">
-                  <Icon name={a.icon} className="h-6 w-6" />
+        {/* Areas of cooperation — modern card layout */}
+        <div className="mb-16 space-y-6">
+          {/* Hero card — Political Relations */}
+          <article aria-labelledby="area-political" className="overflow-hidden rounded-2xl border border-line shadow-md">
+            <div className="flex items-center gap-5 bg-gradient-to-r from-brand-dark via-brand to-brand-deep px-8 py-8">
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white/10 ring-2 ring-gold/30">
+                <Icon name={areas[0].icon} className="h-7 w-7 text-gold" />
+              </span>
+              <div>
+                <span className="mb-1 block text-[10px] font-bold uppercase tracking-widest text-gold/70">
+                  {areas[0].tag}
                 </span>
-                <h2
-                  id={a.title.replace(/\s+/g, "-").toLowerCase()}
-                  className="font-serif text-xl font-bold text-brand-deep md:text-2xl"
-                >
-                  {a.title}
+                <h2 id="area-political" className="font-serif text-2xl font-bold text-white">
+                  {areas[0].title}
                 </h2>
               </div>
-              {a.paras.map((p, i) => (
-                <p key={i} className="mb-5 max-w-3xl text-sm leading-relaxed text-ink/90 md:text-base">
-                  {p}
-                </p>
+            </div>
+            <div className="grid gap-6 bg-white px-8 py-7 md:grid-cols-2">
+              {areas[0].paras.map((p, i) => (
+                <p key={i} className="text-sm leading-relaxed text-ink/90 md:text-base">{p}</p>
               ))}
-            </section>
-          ))}
+            </div>
+          </article>
 
-          <section aria-labelledby="agreements-heading">
-            <h2 id="agreements-heading" className="mb-4 font-serif text-xl font-bold text-brand-deep md:text-2xl">
-              Bilateral Agreements
-            </h2>
-            <ul className="max-w-3xl space-y-3">
-              {agreements.map((ag) => (
-                <li key={ag} className="flex items-start gap-3 rounded border border-line bg-mist p-4 text-sm leading-relaxed md:text-base">
-                  <Icon name="document" className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
-                  {ag}
-                </li>
-              ))}
-            </ul>
-          </section>
+          {/* 2×2 grid for remaining areas */}
+          <div className="grid gap-6 sm:grid-cols-2">
+            {areas.slice(1).map((a) => {
+              const id = `area-${a.title.replace(/[\s&]+/g, "-").toLowerCase()}`;
+              return (
+                <article key={a.title} aria-labelledby={id} className="overflow-hidden rounded-2xl border border-line shadow-sm">
+                  <div className="flex items-center gap-4 bg-gradient-to-br from-brand-dark to-brand px-6 py-6">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/10 ring-1 ring-gold/30">
+                      <Icon name={a.icon} className="h-5 w-5 text-gold" />
+                    </span>
+                    <div>
+                      <span className="mb-0.5 block text-[10px] font-bold uppercase tracking-widest text-gold/70">
+                        {a.tag}
+                      </span>
+                      <h2 id={id} className="font-serif text-lg font-bold text-white">
+                        {a.title}
+                      </h2>
+                    </div>
+                  </div>
+                  <div className="space-y-3 bg-white px-6 py-5">
+                    {a.paras.map((p, i) => (
+                      <p key={i} className="text-sm leading-relaxed text-ink/90">{p}</p>
+                    ))}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         </div>
 
-        <div className="mt-16 rounded bg-brand p-8 text-white">
+        {/* Bilateral agreements */}
+        <section aria-labelledby="agreements-heading" className="mb-16">
+          <h2 id="agreements-heading" className="mb-6 font-serif text-xl font-bold text-brand-deep md:text-2xl">
+            Bilateral Agreements
+          </h2>
+          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {agreements.map((ag) => (
+              <li key={ag} className="flex items-start gap-3 rounded-xl border border-line bg-white p-4 text-sm leading-relaxed shadow-sm">
+                <Icon name="document" className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
+                {ag}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* CTA */}
+        <div className="rounded-2xl bg-brand p-8 text-white">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="max-w-2xl">
               <h2 className="font-serif text-xl font-bold md:text-2xl">
@@ -168,7 +205,7 @@ export default function RelationsPage() {
             </div>
             <Link
               href="/contact"
-              className="rounded bg-gold px-6 py-3 text-sm font-bold text-brand-dark hover:bg-gold-dark"
+              className="rounded-lg bg-gold px-6 py-3 text-sm font-bold text-brand-dark transition-colors hover:bg-amber-400"
             >
               Contact the Trade Section
             </Link>

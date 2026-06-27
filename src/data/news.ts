@@ -1,4 +1,4 @@
-import { wpQuery, isWpConfigured, parseAcfDate } from "@/lib/wp";
+﻿import { wpQuery, isWpConfigured, parseAcfDate } from "@/lib/wp";
 
 export type NewsCategory =
   | "News"
@@ -44,11 +44,11 @@ export const news: NewsItem[] = [
     date: "2026-05-28",
     department: "Office of the Head of Mission",
     excerpt:
-      "The Head of Mission formally presented Letters of Credence to the Head of State of Cuba, reaffirming Nigeria's commitment to strengthening bilateral relations.",
+      "The Head of Mission formally presented Letters of Credence to the Head of State of Japan, reaffirming Nigeria's commitment to strengthening bilateral relations.",
     body: [
-      "H.E. (Dr) Adaeze N. Okonkwo on 26 May 2026 presented Letters of Credence to His Excellency the Head of State of Cuba at a formal ceremony in Havana.",
+      "H.E. (Dr) Adaeze N. Okonkwo on 26 May 2026 presented Letters of Credence to His Excellency the Head of State of Japan at a formal ceremony in Tokyo.",
       "Speaking after the ceremony, the Head of Mission conveyed the warm greetings of the President of the Federal Republic of Nigeria and reaffirmed Nigeria's commitment to deepening the longstanding ties of friendship and cooperation between the two countries.",
-      "Discussions covered trade and investment, educational exchange and the welfare of the Nigerian community in Cuba. Both sides agreed to convene the next session of the bilateral joint commission at an early date.",
+      "Discussions covered trade and investment, educational exchange and the welfare of the Nigerian community in Japan. Both sides agreed to convene the next session of the bilateral joint commission at an early date.",
     ],
     image: {
       src: unsplash("1521791136064-7986c2920216"),
@@ -63,10 +63,10 @@ export const news: NewsItem[] = [
     date: "2026-05-15",
     department: "Consular Section",
     excerpt:
-      "Nigerians resident outside Havana will be able to access passport biometric capture and NIN enrolment at regional outreach centres each quarter.",
+      "Nigerians resident outside Tokyo will be able to access passport biometric capture and NIN enrolment at regional outreach centres each quarter.",
     body: [
-      "The Embassy of Nigeria in Havana is pleased to announce a quarterly consular outreach programme to bring passport biometric capture, NIN enrolment and general consular services closer to Nigerians living outside Havana.",
-      "The first outreach will hold on Saturday 18 July 2026 at the Casa de la Amistad, Santiago de Cuba. Eligible applicants must complete their applications online before attending and should bring all supporting documents listed on the Embassy's website.",
+      "The Embassy of Nigeria in Tokyo is pleased to announce a quarterly consular outreach programme to bring passport biometric capture, NIN enrolment and general consular services closer to Nigerians living outside Tokyo.",
+      "The first outreach will hold on Saturday 18 July 2026 at the Casa de la Amistad, Osaka. Eligible applicants must complete their applications online before attending and should bring all supporting documents listed on the Embassy's website.",
       "Dates and venues for subsequent outreach sessions will be published on this website and on the Embassy's official social media channels.",
     ],
     image: {
@@ -82,11 +82,11 @@ export const news: NewsItem[] = [
     date: "2026-05-02",
     department: "Office of the Head of Mission",
     excerpt:
-      "Full text of the Head of Mission's address at the celebration of Nigeria's Independence Anniversary in Havana.",
+      "Full text of the Head of Mission's address at the celebration of Nigeria's Independence Anniversary in Tokyo.",
     body: [
       "Distinguished guests, members of the Nigerian community, ladies and gentlemen — it is my honour to welcome you to this celebration of the independence of the Federal Republic of Nigeria.",
-      "Today we celebrate not only the history of our great nation, but the achievements of Nigerians here in Cuba — in business, in academia, in healthcare and in the arts — who represent the very best of our country.",
-      "The Embassy remains committed to serving every Nigerian in Cuba with dignity and efficiency, and to building a partnership with Cuba that delivers prosperity for both our peoples. Long live the Federal Republic of Nigeria.",
+      "Today we celebrate not only the history of our great nation, but the achievements of Nigerians here in Japan — in business, in academia, in healthcare and in the arts — who represent the very best of our country.",
+      "The Embassy remains committed to serving every Nigerian in Japan with dignity and efficiency, and to building a partnership with Japan that delivers prosperity for both our peoples. Long live the Federal Republic of Nigeria.",
     ],
     image: {
       src: unsplash("1475721027785-f74eccf877e2"),
@@ -103,9 +103,9 @@ export const news: NewsItem[] = [
     excerpt:
       "The Embassy reminds all Nigerian citizens of the requirement to travel on valid Nigerian passports and warns against the use of intermediaries.",
     body: [
-      "The Embassy of Nigeria in Havana reminds all Nigerian citizens in Cuba that travel to and from Nigeria requires a valid Nigerian passport or, in emergencies, an Emergency Travel Certificate issued by the Embassy.",
+      "The Embassy of Nigeria in Tokyo reminds all Nigerian citizens in Japan that travel to and from Nigeria requires a valid Nigerian passport or, in emergencies, an Emergency Travel Certificate issued by the Embassy.",
       "The Embassy has received reports of unaccredited intermediaries offering passport and visa 'fast-track' services for a fee. Members of the public are advised that all applications are made directly through official online portals, and that no third party can influence processing times.",
-      "Any person who encounters such solicitation is encouraged to report it to the Embassy at info.havana@foreignaffairs.gov.ng.",
+      "Any person who encounters such solicitation is encouraged to report it to the Embassy at info.Tokyo@foreignaffairs.gov.ng.",
     ],
     image: {
       src: unsplash("1488646953014-85cb44e25828"),
@@ -115,16 +115,16 @@ export const news: NewsItem[] = [
   },
   {
     slug: "trade-mission-roundtable",
-    title: "Embassy Hosts Nigeria–Cuba Trade and Investment Roundtable",
+    title: "Embassy Hosts Nigeria–Japan Trade and Investment Roundtable",
     category: "Mission Activity",
     date: "2026-04-08",
     department: "Trade and Investment Section",
     excerpt:
       "Business leaders from both countries met at the Embassy to explore opportunities in agriculture, energy, technology and the creative economy.",
     body: [
-      "The Embassy on 6 April 2026 hosted a trade and investment roundtable bringing together over 60 business leaders, investors and trade officials from Nigeria and Cuba.",
+      "The Embassy on 6 April 2026 hosted a trade and investment roundtable bringing together over 60 business leaders, investors and trade officials from Nigeria and Japan.",
       "Sessions focused on opportunities in agriculture and agro-processing, renewable energy, digital technology and Nigeria's fast-growing creative economy, alongside practical guidance on market entry and investment protection.",
-      "The Embassy's Trade and Investment Section provides year-round support to investors. Interested companies may contact the Embassy at info.havana@foreignaffairs.gov.ng.",
+      "The Embassy's Trade and Investment Section provides year-round support to investors. Interested companies may contact the Embassy at info.Tokyo@foreignaffairs.gov.ng.",
     ],
     image: {
       src: unsplash("1556761175-5973dc0f32e7"),
@@ -141,9 +141,9 @@ export const news: NewsItem[] = [
     excerpt:
       "Community leaders and residents discussed consular service delivery, community welfare and diaspora participation in national development.",
     body: [
-      "H.E. (Dr) Adaeze N. Okonkwo hosted a town hall meeting with members of the Nigerian community in Havana, attended by community association leaders, professionals and students.",
+      "H.E. (Dr) Adaeze N. Okonkwo hosted a town hall meeting with members of the Nigerian community in Tokyo, attended by community association leaders, professionals and students.",
       "Topics included improvements to passport processing, the Embassy's new appointment system, voter registration for eligible Nigerians abroad and opportunities for diaspora investment in Nigeria.",
-      "The Head of Mission thanked the community for its continued good conduct and contribution to Cuba, and pledged regular engagement through quarterly town hall meetings.",
+      "The Head of Mission thanked the community for its continued good conduct and contribution to Japan, and pledged regular engagement through quarterly town hall meetings.",
     ],
     image: {
       src: unsplash("1540575467063-178a50c2df87"),
@@ -232,3 +232,4 @@ export async function getNewsItem(slug: string): Promise<NewsItem | undefined> {
   const all = await getNews();
   return all.find((n) => n.slug === slug);
 }
+

@@ -5,8 +5,8 @@ import { getNews } from "@/data/news";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "News & Press Releases",
-  description: `News, press releases, speeches, official statements and activities of the ${site.missionName}.`,
+  title: "News",
+  description: `Latest news, mission activities and updates from the ${site.missionName}.`,
 };
 
 export default async function NewsPage() {
@@ -14,9 +14,9 @@ export default async function NewsPage() {
   return (
     <>
       <PageHeader
-        title="News & Press Releases"
-        lead="Official news, press releases, speeches, statements and activities of the Mission. Use the filters to find what you need."
-        crumbs={[{ label: "News & Press" }]}
+        title="News"
+        lead="Latest news and mission activities from the Embassy of Nigeria in Tokyo. Use the filters below to browse by category."
+        crumbs={[{ label: "News & Press", href: "/news" }, { label: "News" }]}
       />
       <div className="mx-auto max-w-7xl px-4 py-16">
         <NewsList items={news} />

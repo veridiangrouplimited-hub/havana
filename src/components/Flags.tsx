@@ -71,3 +71,21 @@ export function CubaFlag({ className = "h-5 w-10" }: { className?: string }) {
     </FlagSvg>
   );
 }
+
+/** Japan — white field with red disc (hinomaru) centred. */
+export function JapanFlagShapes() {
+  return (
+    <>
+      <rect width="60" height="30" fill="#ffffff" />
+      <circle cx="30" cy="15" r="9" fill="#bc002d" />
+    </>
+  );
+}
+
+export function JapanFlag({ className = "h-5 w-10" }: { className?: string }) {
+  return (
+    <FlagSvg className={className} label="Flag of Japan">
+      <JapanFlagShapes />
+    </FlagSvg>
+  );
+}

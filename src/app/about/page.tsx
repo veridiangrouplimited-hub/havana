@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import Tabs from "@/components/Tabs";
 import Icon, { type IconName } from "@/components/Icon";
@@ -45,13 +44,13 @@ const departments: { name: string; text: string; icon: IconName }[] = [
 ];
 
 const mandate = [
-  "Represent the Federal Republic of Nigeria in Cuba and protect its national interests.",
-  "Protect the rights, dignity and welfare of Nigerian citizens in Cuba.",
+  `Represent the Federal Republic of Nigeria in ${site.hostCountry} and protect its national interests.`,
+  `Protect the rights, dignity and welfare of Nigerian citizens in ${site.hostCountry}.`,
   "Deliver efficient consular services — passports, visas, authentication and assistance.",
-  "Promote trade, investment and economic cooperation between Nigeria and Cuba.",
+  `Promote trade, investment and economic cooperation between Nigeria and ${site.hostCountry}.`,
   "Foster cultural, educational and people-to-people exchange.",
   "Negotiate and monitor the implementation of bilateral agreements.",
-  "Report on developments in Cuba of interest to Nigeria.",
+  `Report on developments in ${site.hostCountry} of interest to Nigeria.`,
 ];
 
 function Para({ children }: { children: React.ReactNode }) {
@@ -108,14 +107,14 @@ export default function AboutPage() {
                 <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
                   <figure>
                     <div className="overflow-hidden rounded shadow-md">
-                      <div className="relative aspect-[3/4] border border-line bg-mist">
-                        <Image
-                          src={site.headOfMissionPortrait.src}
-                          alt={site.headOfMissionPortrait.alt}
-                          fill
-                          sizes="280px"
-                          className="object-cover"
-                        />
+                      <div className="relative aspect-[3/4] border border-line bg-surface">
+                        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                          <svg viewBox="0 0 80 80" className="h-24 w-24 text-ink/20" fill="currentColor" aria-hidden="true">
+                            <circle cx="40" cy="27" r="17" />
+                            <ellipse cx="40" cy="74" rx="29" ry="21" />
+                          </svg>
+                          <p className="text-xs font-medium text-ink/40">Official portrait pending</p>
+                        </div>
                       </div>
                       <FlagStripe className="h-1.5" />
                     </div>
@@ -134,8 +133,7 @@ export default function AboutPage() {
                     <Para>
                       {site.headOfMission} is the {site.headOfMissionTitle}, appointed by the
                       President of the Federal Republic of Nigeria. She presented her Letters of
-                      Credence to the Head of State of the Republic of Cuba in Havana on 26 May
-                      2026.
+                      Credence to the Emperor of Japan in Tokyo on 15 March 2026.
                     </Para>
                     <Para>
                       A career diplomat with over twenty-five years in the Nigerian Foreign
@@ -149,9 +147,9 @@ export default function AboutPage() {
                     <Para>
                       She holds a doctorate in International Relations from the University of
                       Ibadan and is a Fellow of the Nigerian Institute of International Affairs.
-                      In addition to English and Igbo, she speaks Spanish and French. Her
-                      priorities in Havana include modernising consular service delivery,
-                      expanding Nigeria–Cuba cooperation in health and education, and deepening
+                      In addition to English and Igbo, she speaks Japanese and French. Her
+                      priorities in Tokyo include modernising consular service delivery,
+                      expanding Nigeria–Japan cooperation in trade and technology, and deepening
                       engagement with the Nigerian community across {site.hostCountry}.
                     </Para>
                     <Para>
@@ -170,20 +168,20 @@ export default function AboutPage() {
                 <div>
                   <H2>History of the Mission</H2>
                   <Para>
-                    Nigeria and {site.hostCountry} established diplomatic relations in 1974, in
-                    the spirit of South–South solidarity that shaped both nations' foreign policy.
-                    The Embassy in {site.city} opened in 1976 and has since served as the
-                    cornerstone of the relationship between the two countries — anchoring five
-                    decades of cooperation in trade, health, education and culture.
+                    Nigeria and {site.hostCountry} established diplomatic relations in 1960, making
+                    it one of Nigeria's longest-standing partnerships in Asia. The Embassy in{" "}
+                    {site.city} opened in 1961 and has since served as the cornerstone of the
+                    relationship between the two countries — anchoring decades of cooperation in
+                    trade, technology, education and culture.
                   </Para>
                   <H2>Key Milestones</H2>
                   <ol className="relative max-w-2xl space-y-6 border-l-2 border-gold pl-6">
                     {[
-                      { year: "1974", event: "Establishment of diplomatic relations between Nigeria and Cuba." },
-                      { year: "1976", event: "Opening of the Nigerian Mission in Havana." },
-                      { year: "1988", event: "Signing of the first bilateral cooperation agreement." },
-                      { year: "2005", event: "Inauguration of the current chancery building." },
-                      { year: "2024", event: "Launch of the Mission's modernised consular services." },
+                      { year: "1960", event: `Establishment of diplomatic relations between Nigeria and ${site.hostCountry}.` },
+                      { year: "1961", event: `Opening of the Nigerian Mission in ${site.city}.` },
+                      { year: "1964", event: "Signing of the first Technical Cooperation Agreement." },
+                      { year: "2005", event: "Agreement on Investment Promotion and Protection signed." },
+                      { year: "2026", event: "Launch of the Mission's modernised consular services." },
                     ].map((m, i) => (
                       <li key={i}>
                         <span className="absolute -left-[9px] mt-1.5 h-4 w-4 rounded-full border-2 border-gold bg-white" aria-hidden="true" />

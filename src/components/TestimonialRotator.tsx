@@ -8,28 +8,28 @@ const testimonials = [
     quote:
       "The Embassy helped me renew my passport within days of applying. The staff were professional, warm and genuinely supportive — I felt the Mission was truly working for me.",
     name: "Adaora Nwosu",
-    role: "Medical Doctor, Havana",
+    role: "Medical Doctor, Tokyo",
     initials: "AN",
   },
   {
     quote:
-      "When I ran into a visa complication, the consular team stepped in quickly and resolved it without fuss. Knowing the Embassy is there gives us Nigerians in Cuba real peace of mind.",
+      "When I ran into a visa complication, the consular team stepped in quickly and resolved it without fuss. Knowing the Embassy is there gives us Nigerians in Japan real peace of mind.",
     name: "Emeka Ogunyemi",
-    role: "Business Consultant, Havana",
+    role: "Business Consultant, Tokyo",
     initials: "EO",
   },
   {
     quote:
       "The town hall meetings organised by the Mission have been invaluable — they keep us connected to each other and to home. I always leave with a clearer picture of what's happening.",
     name: "Chidinma Eze",
-    role: "Postgraduate Student, Universidad de La Habana",
+    role: "Postgraduate Student, University of Tokyo",
     initials: "CE",
   },
   {
     quote:
       "I registered with the Embassy soon after arriving and it was the best decision I made. They kept me updated with travel advisories and I felt far less alone in a new country.",
     name: "Babajide Akinwale",
-    role: "Software Engineer, Havana",
+    role: "Software Engineer, Tokyo",
     initials: "BA",
   },
 ];

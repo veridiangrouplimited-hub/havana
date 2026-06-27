@@ -1,4 +1,4 @@
-import { wpQuery, isWpConfigured, parseAcfDate } from "@/lib/wp";
+﻿import { wpQuery, isWpConfigured, parseAcfDate } from "@/lib/wp";
 
 export type NoticePriority =
   | "Urgent"
@@ -52,7 +52,7 @@ export const notices: Notice[] = [
     date: "2026-05-12",
     body: [
       "The Mission is aware of individuals and websites falsely claiming to offer expedited Nigerian visa and passport services for a fee.",
-      "All applications are made only through the official Nigeria Immigration Service portals. The Mission does not use agents and no third party can influence processing times. Report any solicitation to info.havana@foreignaffairs.gov.ng.",
+      "All applications are made only through the official Nigeria Immigration Service portals. The Mission does not use agents and no third party can influence processing times. Report any solicitation to info.Tokyo@foreignaffairs.gov.ng.",
     ],
   },
   {
@@ -61,7 +61,7 @@ export const notices: Notice[] = [
     priority: "Advisory",
     date: "2026-04-30",
     body: [
-      "Nigerian citizens in Cuba are advised to carry valid identification at all times and to keep their residence documentation current, in line with host-country regulations.",
+      "Nigerian citizens in Japan are advised to carry valid identification at all times and to keep their residence documentation current, in line with host-country regulations.",
       "Citizens are also encouraged to register with the Mission so they can be reached quickly in an emergency.",
     ],
   },
@@ -82,7 +82,7 @@ export const notices: Notice[] = [
     date: "2026-03-30",
     body: [
       "The Mission has introduced an online appointment system for all consular services to reduce waiting times.",
-      "From 1 April 2026, walk-in submissions will be accepted only for emergencies. Book your appointment through the Contact page or at info.havana@foreignaffairs.gov.ng.",
+      "From 1 April 2026, walk-in submissions will be accepted only for emergencies. Book your appointment through the Contact page or at info.Tokyo@foreignaffairs.gov.ng.",
     ],
   },
 ];
@@ -134,3 +134,4 @@ export async function getNotices(): Promise<Notice[]> {
     return notices;
   }
 }
+

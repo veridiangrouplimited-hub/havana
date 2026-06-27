@@ -1,7 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site, govLinks } from "@/lib/site";
 import WatermarkSeal from "@/components/WatermarkSeal";
-import EmbassySeal from "@/components/EmbassySeal";
 import Icon, { type IconName } from "@/components/Icon";
 import FlagStripe from "@/components/FlagStripe";
 
@@ -30,7 +30,13 @@ export default function Footer() {
       <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="mb-5 flex items-center gap-4">
-            <EmbassySeal className="h-20 w-20 shrink-0" />
+            <Image
+              src="/images/mfa-logox.png"
+              alt="Coat of Arms — Federal Republic of Nigeria"
+              width={80}
+              height={80}
+              className="h-20 w-20 shrink-0 object-contain"
+            />
             <div className="border-l-2 border-gold/60 pl-3">
               <p className="font-serif text-base font-bold leading-snug">{site.missionName}</p>
               <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/65">

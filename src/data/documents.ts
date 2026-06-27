@@ -1,4 +1,4 @@
-import { wpQuery, isWpConfigured } from "@/lib/wp";
+﻿import { wpQuery, isWpConfigured } from "@/lib/wp";
 
 export type DocCategory = "visa" | "passport" | "authentication" | "general";
 
@@ -66,7 +66,7 @@ export const documents: ConsularDocument[] = [
     id: "document-auth-form",
     title: "Document Authentication / Legalisation Request",
     description:
-      "Request form for authentication of Nigerian-issued documents for use in Cuba.",
+      "Request form for authentication of Nigerian-issued documents for use in Japan.",
     category: "authentication",
     filename: "document-authentication-form.pdf",
     sizeKb: 64,
@@ -76,7 +76,7 @@ export const documents: ConsularDocument[] = [
     id: "citizen-registration-form",
     title: "Nigerian Citizen Registration Form",
     description:
-      "Form for Nigerians resident in Cuba to register with the Mission for consular assistance.",
+      "Form for Nigerians resident in Japan to register with the Mission for consular assistance.",
     category: "general",
     filename: "citizen-registration-form.pdf",
     sizeKb: 52,
@@ -140,3 +140,4 @@ export async function getDocuments(): Promise<ConsularDocument[]> {
     return documents;
   }
 }
+
