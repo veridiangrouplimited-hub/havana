@@ -32,16 +32,16 @@ export default function NewsCarousel({ items }: { items: NewsItem[] }) {
   return (
     <>
       {/* ── Mobile: horizontal snap scroll ── */}
-      <div className="relative lg:hidden">
+      <div className="relative overflow-hidden lg:hidden">
         <div
           ref={trackRef}
           onScroll={handleScroll}
-          className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [-webkit-overflow-scrolling:touch]"
+          className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-1 pb-2 [scrollbar-width:none] [-webkit-overflow-scrolling:touch]"
         >
           {items.map((n) => (
             <article
               key={n.slug}
-              className="group w-[82vw] shrink-0 snap-start overflow-hidden rounded border border-line bg-white shadow-sm"
+              className="group w-[82vw] max-w-sm shrink-0 snap-start overflow-hidden rounded border border-line bg-white shadow-sm"
             >
               <Link
                 href={`/news/${n.slug}`}
@@ -53,7 +53,7 @@ export default function NewsCarousel({ items }: { items: NewsItem[] }) {
                   src={n.image.src}
                   alt=""
                   fill
-                  sizes="82vw"
+                  sizes="(min-width: 640px) 384px, 82vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <span className="absolute left-3 top-3 rounded bg-brand-dark/90 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gold shadow">

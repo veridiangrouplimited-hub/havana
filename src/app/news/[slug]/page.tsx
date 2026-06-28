@@ -7,6 +7,8 @@ import Icon from "@/components/Icon";
 import { getNews, getNewsItem, formatDate } from "@/data/news";
 import { site } from "@/lib/site";
 
+export const revalidate = 3600;
+
 export async function generateStaticParams() {
   const news = await getNews();
   return news.map((n) => ({ slug: n.slug }));

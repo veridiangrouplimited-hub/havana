@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { site } from "@/lib/site";
+
+export const revalidate = 3600;
 import { getServices } from "@/data/services";
 import { getNews, formatDate } from "@/data/news";
 import { getNotices } from "@/data/notices";
@@ -105,7 +107,7 @@ export default async function Home() {
                 href="/contact"
                 className="inline-flex items-center gap-2 rounded border border-white/50 px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:border-white hover:bg-white/10"
               >
-                Book Appointment
+                Book an Appointment
               </Link>
               <Link
                 href="/consular-services/consular-assistance"
@@ -261,7 +263,7 @@ export default async function Home() {
 
       {/* News + Notices */}
       <section aria-labelledby="news-heading" className="mx-auto max-w-7xl px-4 py-16 md:py-20">
-        <div className="grid gap-14 lg:grid-cols-[2fr_1fr]">
+        <div className="grid gap-10 lg:grid-cols-[2fr_1fr] lg:gap-14">
           <div>
             <SectionHeading
               eyebrow="Latest from the Embassy"
@@ -428,10 +430,11 @@ export default async function Home() {
               </li>
               <li className="flex items-center gap-3 rounded border border-line bg-mist p-3.5">
                 <Image
-                  src="/images/mfa-logo.png"
+                  src="/images/mfa-logo.webp"
                   alt=""
                   width={36}
                   height={36}
+                  sizes="36px"
                   className="h-9 w-9 shrink-0 object-contain"
                 />
                 <span className="text-xs leading-snug">
@@ -541,7 +544,7 @@ export default async function Home() {
               href="/contact"
               className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-brand hover:underline"
             >
-              Book an appointment
+              Book an Appointment
               <Icon name="arrow" className="h-4 w-4" />
             </Link>
           </div>

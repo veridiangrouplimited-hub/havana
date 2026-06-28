@@ -41,17 +41,15 @@ export default async function SpeechesPage() {
           </p>
         ) : (
           <ul className="space-y-6">
-            {items.map((n) => {
-              const badge = categoryLabel[n.category] ?? { label: n.category, color: "bg-line text-ink" };
-              return (
+            {items.map((n) => (
                 <li key={n.slug}>
                   <article className="group relative overflow-hidden rounded-xl border border-line bg-white shadow-sm transition-shadow hover:shadow-md">
                     {/* Accent bar */}
                     <div className="h-1 w-full bg-gradient-to-r from-brand via-brand/60 to-brand/20" />
                     <div className="p-6">
                       <div className="mb-3 flex flex-wrap items-center gap-2.5">
-                        <span className={`rounded px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-widest ${badge.color}`}>
-                          {badge.label}
+                        <span className="rounded bg-brand/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-widest text-brand">
+                          Speech
                         </span>
                         <time dateTime={n.date} className="text-xs text-ink/55">
                           {formatDate(n.date)}
@@ -77,8 +75,7 @@ export default async function SpeechesPage() {
                     </div>
                   </article>
                 </li>
-              );
-            })}
+            ))}
           </ul>
         )}
 

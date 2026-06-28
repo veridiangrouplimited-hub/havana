@@ -85,7 +85,7 @@ export default function RelationsPage() {
 
       {/* Stats bar */}
       <div className="bg-brand-dark text-white">
-        <dl className="mx-auto grid max-w-7xl gap-px overflow-hidden px-4 py-8 sm:grid-cols-2 lg:grid-cols-4">
+        <dl className="mx-auto grid max-w-7xl gap-px overflow-hidden px-4 py-8 sm:grid-cols-2 md:grid-cols-4">
           {stats.map((s) => (
             <div key={s.label} className="px-4 py-3 text-center">
               <dd className="font-serif text-3xl font-bold text-gold">{s.value}</dd>

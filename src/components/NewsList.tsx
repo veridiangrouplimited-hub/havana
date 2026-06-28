@@ -135,7 +135,7 @@ export default function NewsList({ items }: { items: NewsItem[] }) {
           {/* Featured lead story — page 1 only */}
           {featured && (
             <article className="group mb-10 overflow-hidden rounded border border-line bg-white shadow-sm transition-shadow hover:shadow-lg">
-              <div className="grid lg:grid-cols-[1.15fr_1fr]">
+              <div className="grid md:grid-cols-[1.15fr_1fr]">
                 <Link
                   href={`/news/${featured.slug}`}
                   className="relative block min-h-56 overflow-hidden bg-mist lg:min-h-full"

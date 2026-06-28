@@ -31,10 +31,11 @@ export default function Footer() {
         <div>
           <div className="mb-5 flex items-center gap-4">
             <Image
-              src="/images/mfa-logox.png"
+              src="/images/mfa-logox.webp"
               alt="Coat of Arms — Federal Republic of Nigeria"
               width={80}
               height={80}
+              sizes="80px"
               className="h-20 w-20 shrink-0 object-contain"
             />
             <div className="border-l-2 border-gold/60 pl-3">

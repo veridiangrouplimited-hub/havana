@@ -7,6 +7,8 @@ import { getNotices } from "@/data/notices";
 import { getDocuments } from "@/data/documents";
 import { site } from "@/lib/site";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Public Notices",
   description: `Official announcements, consular advisories, holiday notices and service updates from the ${site.missionName}.`,

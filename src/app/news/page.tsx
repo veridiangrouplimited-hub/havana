@@ -4,6 +4,8 @@ import NewsList from "@/components/NewsList";
 import { getNews } from "@/data/news";
 import { site } from "@/lib/site";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "News",
   description: `Latest news, mission activities and updates from the ${site.missionName}.`,

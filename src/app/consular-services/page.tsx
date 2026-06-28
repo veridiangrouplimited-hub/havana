@@ -5,6 +5,8 @@ import Icon, { type IconName } from "@/components/Icon";
 import { getServices } from "@/data/services";
 import { site } from "@/lib/site";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Consular Services",
   description: `Visa, passport, emergency travel, document authentication, notarial services and consular assistance at the ${site.missionName}.`,

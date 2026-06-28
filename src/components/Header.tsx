@@ -59,10 +59,11 @@ export default function Header() {
                   aria-label="Open national symbols: coat of arms, anthem and motto"
                 >
                   <Image
-                    src="/images/mfa-logo.png"
+                    src="/images/mfa-logo.webp"
                     alt="Coat of Arms — Federal Republic of Nigeria"
                     width={60}
                     height={60}
+                    sizes="60px"
                     className="h-12 w-12 object-contain md:h-[60px] md:w-[60px]"
                     priority
                   />
