@@ -239,7 +239,7 @@ export default async function Home() {
             />
             <blockquote className="relative space-y-4 border-l-4 border-gold pl-6 text-base leading-relaxed text-ink/90">
               <p>
-                “On behalf of the Government and people of the Federal Republic of Nigeria, I
+                "On behalf of the Government and people of the Federal Republic of Nigeria, I
                 welcome you to the official website of the {site.missionName}. This Embassy exists
                 to serve — to protect the interests of Nigerians in Japan, and to deepen the
                 historic friendship and partnership between our two countries.
@@ -247,7 +247,7 @@ export default async function Home() {
               <p>
                 Whether you are a Nigerian seeking consular support, an investor exploring
                 opportunities in Africa's largest economy, or a friend of Nigeria, you will find
-                this Embassy ready to assist you with professionalism and courtesy.”
+                this Embassy ready to assist you with professionalism and courtesy."
               </p>
             </blockquote>
             <Link
@@ -430,8 +430,8 @@ export default async function Home() {
               </li>
               <li className="flex items-center gap-3 rounded border border-line bg-mist p-3.5">
                 <Image
-                  src="/images/mfa-logo.webp"
-                  alt=""
+                  src="/images/ng-coa.jpg"
+                  alt="Coat of Arms of the Federal Republic of Nigeria"
                   width={36}
                   height={36}
                   sizes="36px"
@@ -448,10 +448,31 @@ export default async function Home() {
                 </span>
                 <span className="text-xs leading-snug">
                   <strong className="block text-brand-deep">National Anthem</strong>
-                  “Nigeria, We Hail Thee”
+                  "Nigeria, We Hail Thee"
                 </span>
               </li>
             </ul>
+
+            {/* Anthem audio player */}
+            <div className="mt-5 rounded-lg border border-line bg-mist px-4 py-4">
+              <p className="mb-2.5 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-brand-deep">
+                <Icon name="bell" className="h-3.5 w-3.5 text-brand" />
+                Listen — National Anthem
+              </p>
+              {/* Place the anthem MP3 at public/audio/national-anthem.mp3 */}
+              <audio
+                controls
+                className="h-9 w-full"
+                src="/audio/national-anthem.mp3"
+                preload="none"
+                aria-label="Nigerian National Anthem — Nigeria, We Hail Thee"
+              >
+                Your browser does not support audio playback.
+              </audio>
+              <p className="mt-1.5 text-[10px] italic text-ink/45">
+                &ldquo;Nigeria, We Hail Thee&rdquo; — adopted 1960; re-adopted 2024
+              </p>
+            </div>
           </div>
         </div>
       </section>
