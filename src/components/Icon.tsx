@@ -4,6 +4,8 @@ export type IconName =
   | "visa"
   | "passport"
   | "plane"
+  | "play"
+  | "pause"
   | "seal"
   | "scale"
   | "shield"
@@ -47,6 +49,8 @@ const paths: Record<IconName, ReactNode> = {
     </>
   ),
   plane: <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />,
+  play: <path d="M5 3l14 9-14 9V3z" />,
+  pause: <path d="M6 4h4v16H6zM14 4h4v16h-4z" />,
   seal: (
     <>
       <circle cx="12" cy="8" r="5" />

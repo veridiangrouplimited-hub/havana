@@ -16,6 +16,7 @@ import RouteMap from "@/components/RouteMap";
 import { NigeriaFlag, JapanFlag } from "@/components/Flags";
 import NewsCarousel from "@/components/NewsCarousel";
 import WatermarkSeal from "@/components/WatermarkSeal";
+import AnthemModal from "@/components/AnthemModal";
 
 const nigeriaFacts = [
   { label: "Capital", value: "Abuja" },
@@ -429,50 +430,23 @@ export default async function Home() {
                 </span>
               </li>
               <li className="flex items-center gap-3 rounded border border-line bg-mist p-3.5">
-                <Image
-                  src="/images/ng-coa.jpg"
-                  alt="Coat of Arms of the Federal Republic of Nigeria"
-                  width={36}
-                  height={36}
-                  sizes="36px"
-                  className="h-9 w-9 shrink-0 object-contain"
-                />
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-black/10" aria-hidden="true">
+                  <Image
+                    src="/images/ng-coa.jpg"
+                    alt="Coat of Arms of the Federal Republic of Nigeria"
+                    width={30}
+                    height={30}
+                    sizes="30px"
+                    className="h-[30px] w-[30px] object-contain"
+                  />
+                </span>
                 <span className="text-xs leading-snug">
                   <strong className="block text-brand-deep">Coat of Arms</strong>
                   Eagle of strength, black shield of fertile soil
                 </span>
               </li>
-              <li className="flex items-center gap-3 rounded border border-line bg-mist p-3.5">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand" aria-hidden="true">
-                  <Icon name="bell" className="h-4.5 w-4.5" />
-                </span>
-                <span className="text-xs leading-snug">
-                  <strong className="block text-brand-deep">National Anthem</strong>
-                  "Nigeria, We Hail Thee"
-                </span>
-              </li>
+              <AnthemModal />
             </ul>
-
-            {/* Anthem audio player */}
-            <div className="mt-5 rounded-lg border border-line bg-mist px-4 py-4">
-              <p className="mb-2.5 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-brand-deep">
-                <Icon name="bell" className="h-3.5 w-3.5 text-brand" />
-                Listen — National Anthem
-              </p>
-              {/* Place the anthem MP3 at public/audio/national-anthem.mp3 */}
-              <audio
-                controls
-                className="h-9 w-full"
-                src="/audio/national-anthem.mp3"
-                preload="none"
-                aria-label="Nigerian National Anthem — Nigeria, We Hail Thee"
-              >
-                Your browser does not support audio playback.
-              </audio>
-              <p className="mt-1.5 text-[10px] italic text-ink/45">
-                &ldquo;Nigeria, We Hail Thee&rdquo; — adopted 1960; re-adopted 2024
-              </p>
-            </div>
           </div>
         </div>
       </section>
