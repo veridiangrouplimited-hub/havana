@@ -87,7 +87,7 @@ export const navigation: NavItem[] = [
     ],
   },
   { label: "Bilateral Relations", href: "/relations" },
-  { label: "Nigerians in Diaspora", href: "/diaspora" },
+  { label: "Nigerians in Japan", href: "/diaspora" },
   {
     label: "News & Press",
     href: "/news",
