@@ -101,7 +101,7 @@ export default function RouteMap({
         TOKYO
       </text>
 
-      {/* Flight arc — Abuja (115,165) → Tokyo (761,257) over Indian Ocean */}
+      {/* Flight arc — Abuja (115,165) → Tokyo (761,257) — upper route */}
       <path
         d="M115 165 Q430 20 761 257"
         fill="none"
@@ -110,11 +110,23 @@ export default function RouteMap({
         strokeDasharray="3 9"
         strokeLinecap="round"
       />
-      {/* Plane at arc midpoint t=0.5 → approx (430, 116) */}
-      <path d="M418 112 l26 8 -26 8 6 -8 z" fill={gold} transform="rotate(5 430 116)" />
+      {/* Plane pointing Japan-bound — centred arrowhead at arc midpoint (434, 116), rotated 8° */}
+      <path d="M13 0 L-13 -8 L-7 0 L-13 8 Z" fill={gold} transform="translate(434 116) rotate(8)" />
       <text x="455" y="98" textAnchor="middle" fill={faint} fontSize="12" fontWeight="600" letterSpacing="2">
         &#x2248; 14,000 KM
       </text>
+
+      {/* Return arc — Tokyo (761,257) → Abuja (115,165) — lower route */}
+      <path
+        d="M761 257 Q430 340 115 165"
+        fill="none"
+        stroke={gold}
+        strokeWidth="2.5"
+        strokeDasharray="3 9"
+        strokeLinecap="round"
+      />
+      {/* Plane pointing Nigeria-bound — centred arrowhead at arc midpoint (434, 276), rotated 188° */}
+      <path d="M13 0 L-13 -8 L-7 0 L-13 8 Z" fill={gold} transform="translate(434 276) rotate(188)" />
 
       <text x="430" y="420" textAnchor="middle" fill={faint} fontSize="13" fontStyle="italic" letterSpacing="8">
         INDIAN OCEAN
